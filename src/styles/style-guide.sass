@@ -1,0 +1,44 @@
+
+//new colors
+$green1: #c6dc70
+$green2: #99cb57
+$green3: #73a641
+$blue1: #d8eff4
+$blue2: #85d0d4
+$blue3: #22a9a3
+$blue4: #1e847c
+$blue5: #15514b
+$gold1: #fbdb96
+$gold2: #ffcd51
+$cream: #f3ebde
+$red: #f16151
+
+$gray: #333
+$light-gray: #ccc
+
+$font: Helvetica, sans-serif
+$radius: 5px
+
+//mixins
+// to call a mixin:
+// .box
+//     +border-radius
+
+=border-radius
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+=button-shadow
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)
+    background: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)
+
+=gradient
+    background: #d8eff4
+    background-image: linear-gradient(51deg, #f0f6f7, #d8eff4)
+    background-image: -webkit-linear-gradient(51deg, #f0f6f7, #d8eff4)
+    background-image: -o-linear-gradient(51deg, #f0f6f7, #d8eff4)
+    background-image: -moz-linear-gradient(51deg, #f0f6f7, #d8eff4)
