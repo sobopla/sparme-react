@@ -7,8 +7,8 @@ const Header = () => {
 	return (
 		<header className='flex-between header'>
 			<Logo />
-			<Nav />
-			{/* <DealershipPortalButton /> */}
+			{/* <Nav /> */}
+			<DealershipPortalButton />
 		</header>
 	)
 }
