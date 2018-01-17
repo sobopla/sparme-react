@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Aux from '../../hoc/Aux'
+import { connect } from 'react-redux'
+// import * as actions from '../../redux/actions'
 
 class register extends Component {
   render(){
@@ -10,7 +12,8 @@ class register extends Component {
             <div className='wide-button fb-blue'>Sign in with Facebook</div>
             <div className='wide-button google-red'>Sign in with Google</div>
             <p>Already have an account?</p>
-            <button className='basic-button blue3'>Sign In</button>
+            <button className='basic-button blue3'
+                    onClick={this.props.clickToSignIn}>Sign In</button>
           </div>
           <div className='flex-column'>
             <input placeholder='Full Name'/>
@@ -20,7 +23,8 @@ class register extends Component {
             <button
               className='basic-button green2'
               onClick={this.props.clickToRegister}
-              // onClick={this.props.confetti}
+              onClick={this.props.confetti}
+              // onClick={()=>this.props.authenticate(true)}
               >Register</button>
           </div>
         </div>
@@ -29,4 +33,8 @@ class register extends Component {
   }
 }
 
-export default register
+// function mapStateToProps (state) {
+//   return { authenticated: state.authenticated }
+// }
+
+export default connect()(register)

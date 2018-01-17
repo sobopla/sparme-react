@@ -5,6 +5,8 @@ let confetti = null
 
 class Backdrop extends Component {
   makeConfettiHandler = () => {
+    console.log('confetti');
+
     confetti =
         <Confetti
           width='2000px'
@@ -30,7 +32,10 @@ class Backdrop extends Component {
 
 
     return this.props.show ?
-      <div className='backdrop' onClick={this.props.clicked}>
+      <div
+        className='backdrop'
+        onClick={this.props.clicked}
+        makeConfetti={this.makeConfettiHandler}>
         {confetti}
       </div> : null
   }

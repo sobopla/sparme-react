@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Aux from '../../hoc/Aux'
 import Modal from '../../UI/Modal/Modal'
 import Register from './register'
+import SignIn from './signIn'
 import Hooray from '../../components/auth/hooray'
 
 class Auth extends Component {
@@ -13,16 +14,30 @@ class Auth extends Component {
     confirm: false
   }
 
-  removeModalHandler = (modalType) => {
-    this.setState({registration: false})
+  removeModalHandler = () => {
+    this.setState({
+      registration: false,
+      signIn: false,
+      hooray: false,
+      confirm: false
+    })
   }
 
-  hoorayHandler = () => {
-    this.setState({hooray: true})
-  }
-
-  switchModalHandler = () => {
+  registrationHandler = () => {
     this.setState({registration: false, hooray: true})
+  }
+
+  signInHandler = () => {
+    this.setState({registration: false, signIn: true})
+  }
+
+  authenticationHandler = () => {
+    this.setState({
+      registration: false,
+      signIn: false,
+      hooray: false,
+      confirm: false
+    })
   }
 
   render(){
@@ -30,15 +45,22 @@ class Auth extends Component {
     return (
       <Aux>
         <Modal show={this.state.registration}
-               modalClosed={()=>this.removeModalHandler('registration')}>
-          <Register clickToRegister={() => this.switchModalHandler()}
+               modalClosed={this.removeModalHandler}>
+          <Register clickToRegister={this.registrationHandler}
+                    clickToSignIn = {this.signInHandler}
                     // confetti={this.props.makeConfetti}
                   />
         </Modal>
         <Modal show={this.state.hooray}
-               modalClosed={()=>this.removeModalHandler('hooray')}
+               modalClosed={this.removeModalHandler}
                >
-          <Hooray/>
+          <Hooray modalClosed={this.removeModalHandler}/>
+        </Modal>
+        <Modal show={this.state.signIn}
+               modalClosed={this.removeModalHandler}
+               >
+          <SignIn modalClosed={this.removeModalHandler}
+                  clickToAuthenticate={this.authenticationHandler}/>
         </Modal>
       </Aux>
     )
