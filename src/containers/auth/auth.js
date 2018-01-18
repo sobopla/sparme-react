@@ -53,6 +53,7 @@ class Auth extends Component {
         </Modal>
         <Modal show={this.state.hooray}
                modalClosed={this.removeModalHandler}
+               makeConfetti={true}
                >
           <Hooray modalClosed={this.removeModalHandler}/>
         </Modal>

@@ -4,6 +4,13 @@ import { connect } from 'react-redux'
 // import * as actions from '../../redux/actions'
 
 class register extends Component {
+
+  clickToRegister = () => {
+    console.log(this.username.value);
+    this.props.clickToRegister()
+    //this.props.authenticate(true)
+  }
+
   render(){
     return (
       <Aux>
@@ -16,15 +23,13 @@ class register extends Component {
                     onClick={this.props.clickToSignIn}>Sign In</button>
           </div>
           <div className='flex-column'>
-            <input placeholder='Full Name'/>
-            <input placeholder='email' />
-            <input placeholder='password' />
-            <input placeholder='confirm password' />
+            <input type='text' placeholder='Full Name' ref={(input) => {this.username = input;}}/>
+            <input type='text' placeholder='email' ref={(input) => {this.email = input;}}/>
+            <input type='password' placeholder='password' ref={(input) => {this.password = input;}}/>
+            <input type='password' placeholder='confirm password' ref={(input) => {this.passwordConfirm = input;}}/>
             <button
               className='basic-button green2'
-              onClick={this.props.clickToRegister}
-              onClick={this.props.confetti}
-              // onClick={()=>this.props.authenticate(true)}
+              onClick={this.clickToRegister}
               >Register</button>
           </div>
         </div>

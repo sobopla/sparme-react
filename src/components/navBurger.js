@@ -23,7 +23,7 @@ export default class NavBurger extends React.Component {
 				<Menu right>
 					<ul className='nav-options'>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/savedvehicles" onClick={this.handleClick}>
+							<Link className='nav-link'  to="/saved-vehicles" onClick={this.handleClick}>
 								<div>My Saved Vehicles</div>
 							</Link>
 						</li>
@@ -33,12 +33,12 @@ export default class NavBurger extends React.Component {
 							</Link>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link' to="/showroom" onClick={this.handleClick}>
+							<Link className='nav-link' to="/search" onClick={this.handleClick}>
 								<div>Search</div>
 							</Link>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/numbersbreakdown" onClick={this.handleClick}>
+							<Link className='nav-link'  to="/financing" onClick={this.handleClick}>
 								<div>Financing</div>
 							</Link>
 						</li>
