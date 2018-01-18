@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 // import * as actions from '../redux/actions'
 
 
-class Showroom extends Component {
+class SavedVehicles extends Component {
   render(){
     return (
       <Aux>
-        <div>showroom </div>
+        <div>SavedVehicles </div>
       </Aux>
     )
   }
@@ -18,4 +18,4 @@ class Showroom extends Component {
 //   return { authenticated: state.authenticated }
 // }
 
-export default connect()(Showroom)
+export default connect()(SavedVehicles)

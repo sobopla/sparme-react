@@ -5,7 +5,12 @@ import { Route } from 'react-router-dom'
 import Aux from '../hoc/Aux'
 import Header from "../components/header"
 import Auth from '../containers/auth/auth'
-import Showroom from '../containers/showroom'
+
+import Search from '../pages/search'
+import Dashboard from '../pages/dashboard'
+import Accessories from '../pages/accessories'
+import SavedVehicles from '../pages/savedVehicles'
+import Financing from '../pages/financing'
 
 class Layout extends Component {
 
@@ -15,7 +20,11 @@ class Layout extends Component {
       <Aux>
         <Header />
         <Auth />
-        <Route path='/showroom' component = {Showroom} />
+        <Route path='/search' component = {Search} />
+        <Route path='/dashboard' component = {Dashboard} />
+        <Route path='/accessories' component = {Accessories} />
+        <Route path='/saved-vehicles' component = {SavedVehicles} />
+        <Route path='/financing' component = {Financing} />
       </Aux>
     )
   }
