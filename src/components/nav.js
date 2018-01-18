@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const nav = () => {
   return (
-    <nav>
+    <nav className='nav-web'>
       <ul className='flex-media'>
         <li>
           <NavLink to='/saved-vehicles' className='nav-item'>Saved Vehicles</NavLink>

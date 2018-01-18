@@ -1,0 +1,85 @@
+@import './style-guide.sass'
+
+.menu-wrapper
+  width: 50px
+
+Menu
+  position: fixed
+  background-color: $blue1
+  height: 90vh
+.nav-options
+    height: 80vh
+    padding: 10px
+    border-radius: 5px
+    li
+        list-style-type: none
+        .nav-link
+            text-decoration: none
+            width: 300px
+            display: -webkit-inline-flex
+            display: inline-flex
+            align-items: center
+            +border-radius
+            &:hover
+                cursor: pointer
+                background-color: $blue1
+            img
+                width: 30px
+                height: 30px
+                padding: 10px
+            div
+                color: $blue5
+                font-weight: bold
+                font-family: $font
+                font-size: 16px
+                line-height: 1.3
+                padding: 10px
+                text-align: right
+
+/* Position and sizing of burger button */
+.bm-burger-button
+  position: fixed
+  width: 36px
+  height: 30px
+  left: calc(100% - 60px)
+  top: 36px
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars
+  background: $blue5
+  border-radius: 3px
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button
+  height: 24px
+  width: 24px
+
+/* Color/shape of close button cross */
+.bm-cross
+  background: #333
+
+/* General sidebar styles */
+.bm-menu
+  background: #fcfcfc
+  padding: 1.5em 1.5em 1.5em 0
+  font-size: 1.15em
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape
+  fill: #373a47
+
+/* Wrapper for item list */
+.bm-item-list
+  color: #b8b7ad
+  padding: 0.8em
+
+/* Styling of overlay */
+.bm-overlay
+  background: rgba(0, 0, 0, 0.3)
+
+@media (min-width: 900px)
+  .menu-wrapper
+    display: none
+@media (max-width: 500px)
+  .bm-burger-bars
+    background: #fcfcfc
