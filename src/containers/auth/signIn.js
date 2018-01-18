@@ -5,6 +5,12 @@ import { NavLink } from 'react-router-dom'
 // import * as actions from '../../redux/actions'
 
 class signIn extends Component {
+
+  clickToSignIn = () => {
+    console.log('signing in');
+    //this.props.authenticate(true)
+  }
+
   render(){
     return (
       <Aux>
@@ -16,8 +22,7 @@ class signIn extends Component {
             <NavLink to='/showroom'>
               <button
                 className='basic-button green2'
-                onClick={this.props.clickToAuthenticate}
-                // onClick={()=>this.props.authenticate(true)}
+                onClick={this.clickToSignIn}
                 >Sign In</button>
             </NavLink>
           </div>
