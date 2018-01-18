@@ -7,7 +7,7 @@ class register extends Component {
 
   clickToRegister = () => {
     console.log(this.username.value);
-    this.props.clickToRegister()
+    this.props.showHoorayModal()
     //this.props.authenticate(true)
   }
 
@@ -20,7 +20,7 @@ class register extends Component {
             <div className='wide-button google-red'>Sign in with Google</div>
             <p>Already have an account?</p>
             <button className='basic-button blue3'
-                    onClick={this.props.clickToSignIn}>Sign In</button>
+                    onClick={this.props.showSignInModal}>Sign In</button>
           </div>
           <div className='flex-column'>
             <input type='text' placeholder='Full Name' ref={(input) => {this.username = input;}}/>

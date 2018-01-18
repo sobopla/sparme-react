@@ -23,7 +23,7 @@ class Auth extends Component {
     })
   }
 
-  registrationHandler = () => {
+  hoorayHandler = () => {
     this.setState({registration: false, hooray: true})
   }
 
@@ -46,9 +46,8 @@ class Auth extends Component {
       <Aux>
         <Modal show={this.state.registration}
                modalClosed={this.removeModalHandler}>
-          <Register clickToRegister={this.registrationHandler}
-                    clickToSignIn = {this.signInHandler}
-                    // confetti={this.props.makeConfetti}
+          <Register showHoorayModal={this.hoorayHandler}
+                    showSignInModal = {this.signInHandler}
                   />
         </Modal>
         <Modal show={this.state.hooray}
