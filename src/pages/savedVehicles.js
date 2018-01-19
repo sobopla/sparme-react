@@ -7,9 +7,7 @@ import { connect } from 'react-redux'
 class SavedVehicles extends Component {
   render(){
     return (
-      <Aux>
-        <div>SavedVehicles </div>
-      </Aux>
+      <div>saved vehicles</div>
     )
   }
 }

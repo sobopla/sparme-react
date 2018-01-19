@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
-import Aux from '../hoc/Aux'
-import { connect } from 'react-redux'
-// import * as actions from '../redux/actions'
+import UpcomingAppointments from '../components/dashboard/upcomingAppointments'
+import DashboardSavedVehicles from '../components/dashboard/dashboardSavedVehicles'
+import TradeIn from '../components/dashboard/tradeIn'
+import Messages from '../components/dashboard/messages'
 
-
-class Dashboard extends Component {
-  render(){
+const Dashboard = () => {
     return (
-      <Aux>
-        <div>Dashboard </div>
-      </Aux>
+      <div>
+        <UpcomingAppointments/>
+        <DashboardSavedVehicles/>
+        <TradeIn/>
+        <Messages/>
+      </div>
     )
-  }
 }
 
-// function mapStateToProps (state) {
-//   return { authenticated: state.authenticated }
-// }
-
-export default connect()(Dashboard)
+export default Dashboard
