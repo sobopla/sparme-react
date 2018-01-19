@@ -7,6 +7,7 @@ import Header from "../components/header"
 import Auth from '../containers/auth/auth'
 
 import Search from '../pages/search'
+import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
 import Accessories from '../pages/accessories'
 import SavedVehicles from '../pages/savedVehicles'
@@ -21,6 +22,7 @@ class Layout extends Component {
         <Header />
         <Auth />
         <Route path='/search' component = {Search} />
+        <Route path='/advanced-search' component = {AdvancedSearch} />
         <Route path='/dashboard' component = {Dashboard} />
         <Route path='/accessories' component = {Accessories} />
         <Route path='/saved-vehicles' component = {SavedVehicles} />
