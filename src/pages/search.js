@@ -10,7 +10,7 @@ class Search extends Component {
     return (
       <Aux>
         <div>Initial Search Typeform here</div>
-        <div class='search-button-block'>
+        <div className='search-button-block'>
           <NavLink to='/advanced-search'>
             <button className='basic-button blue3'>Advanced Search</button>
           </NavLink>

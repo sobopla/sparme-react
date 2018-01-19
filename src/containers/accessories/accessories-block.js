@@ -35,14 +35,14 @@ const Slides = [
 
 
 // Component for slide
-class CarouselSlide extends Component {
+class AccessorySlide extends Component {
   render() {
     return (
-      <li className="carousel-slide">
-        <div className="carousel-slide-div">
+      <li className="accessory-slide">
+        <div className="accessory-slide-div">
           <img src={this.props.slide.url} alt={this.props.slide.name} />
-          <h1>{this.props.slide.name}</h1>
-          <h2>{this.props.slide.price}</h2>
+          <h1 className='accessory-name'>{this.props.slide.name}</h1>
+          <h2 className='accessory-price'>{this.props.slide.price}</h2>
           <div className='flex-center'><input type="checkbox" /></div>
         </div>
       </li>
@@ -51,7 +51,7 @@ class CarouselSlide extends Component {
 }
 
 // Carousel component
-export default class AccessoriesCarousel extends Component {
+export default class AccessoriesBlock extends Component {
   constructor(props) {
     super(props);
 
@@ -64,9 +64,9 @@ export default class AccessoriesCarousel extends Component {
   render() {
     return (
       <div>
-        <ul ref="slideWrap" className="flex-media">
+        <ul ref="slideWrap" className="flex-media accessories-wrapper">
           {this.state.slides.map((slide, index) => (
-            <CarouselSlide
+            <AccessorySlide
               key={index}
               index={index}
               activeIndex={this.state.activeIndex}

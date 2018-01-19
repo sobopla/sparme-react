@@ -4,10 +4,9 @@ import AccessoriesBlock from '../containers/accessories/accessories-block'
 const Accessories = () => {
 	return (
 		<div>
-      <h1 className='accessories-header'>Go wild.  You Deserve an Upgrade.</h1>
-			<div className='flex-center'>
-				<label className='accessory-label'>search by keyword</label>
-				<input className='accessory-search' type='search' />
+			<div className='accessory-search-bar'>
+				<label className='accessory-label'>search accessories by keyword</label>
+				<input className='accessory-search' type='text' ref={(input) => {this.searchValue = input;}}/>
 			</div>
       <AccessoriesBlock />
 			<div className='flex-center'>

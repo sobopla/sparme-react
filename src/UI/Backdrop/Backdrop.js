@@ -1,3 +1,5 @@
+//backdrop to appear behind modal
+
 import React, { Component } from 'react'
 import Confetti from 'react-confetti'
 
