@@ -6,6 +6,8 @@ import Register from './register'
 import SignIn from './signIn'
 import Hooray from '../../components/auth/hooray'
 
+import {auth, providers} from './firebase.js';
+
 class Auth extends Component {
   state = {
     registration: true,
@@ -40,6 +42,22 @@ class Auth extends Component {
     })
   }
 
+  googleAuth = () => {
+    console.log('ok')
+    auth.signInWithPopup(providers['google'])
+      .then((result) => {
+        console.log(result.user)
+      })
+  }
+
+  facebookAuth = () => {
+    console.log('fb')
+    auth.signInWithPopup(providers['facebook'])
+      .then((result) => {
+        console.log(result.user)
+      })
+  }
+
   render(){
 
     return (
@@ -48,6 +66,8 @@ class Auth extends Component {
                modalClosed={this.removeModalHandler}>
           <Register showHoorayModal={this.hoorayHandler}
                     showSignInModal = {this.signInHandler}
+                    googleAuth= {this.googleAuth}
+                    facebookAuth= {this.facebookAuth}
                   />
         </Modal>
         <Modal show={this.state.hooray}
