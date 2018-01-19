@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import Aux from '../../hoc/Aux'
 import { connect } from 'react-redux'
+
+import {auth} from './firebase.js'
 // import * as actions from '../../redux/actions'
 
 class register extends Component {
 
   clickToRegister = () => {
+    auth.createUserWithEmailAndPassword(this.email.value, this.password.value).catch(function(error) {
+      console.log(error.code)
+      console.log(error.message)
+    })
+
     console.log(this.username.value);
     this.props.showHoorayModal()
     //this.props.authenticate(true)
