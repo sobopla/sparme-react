@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import Aux from '../../hoc/Aux'
 import { connect } from 'react-redux'
+
+import {auth} from './firebase.js'
 // import * as actions from '../../redux/actions'
 
 class register extends Component {
 
   clickToRegister = () => {
+    auth.createUserWithEmailAndPassword(this.email.value, this.password.value).catch(function(error) {
+      console.log(error.code)
+      console.log(error.message)
+    })
+
     console.log(this.username.value);
     this.props.showHoorayModal()
     //this.props.authenticate(true)
@@ -16,8 +23,8 @@ class register extends Component {
       <Aux>
         <div className='flex-media register'>
           <div className='flex-column'>
-            <div className='wide-button fb-blue' onClick={this.props.facebookAuth}>Sign in with Facebook</div>
-            <div className='wide-button google-red' onClick={this.props.googleAuth}>Sign in with Google</div>
+            <div className='wide-button fb-blue' onClick={this.props.popupCallback.bind(null, 'facebook')}>Sign in with Facebook</div>
+            <div className='wide-button google-red' onClick={this.props.popupCallback.bind(null, 'google')}>Sign in with Google</div>
             <p>Already have an account?</p>
             <button className='basic-button blue3'
               onClick={this.props.showSignInModal}>Sign In</button>
