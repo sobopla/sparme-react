@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 class Search extends Component {
   render(){
     return (
-      <Aux>
+      <div className='search-page'>
         <div>Initial Search Typeform here</div>
         <div className='search-button-block'>
           <NavLink to='/advanced-search'>
@@ -16,7 +16,7 @@ class Search extends Component {
           </NavLink>
           <button className='basic-button green2'>View Results</button>
         </div>
-      </Aux>
+      </div>
     )
   }
 }
