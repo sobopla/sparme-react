@@ -1,3 +1,7 @@
+//reusable Modal Component takes a child with content
+//used for auth - takes register, sign in, and hooray components as children
+//can be reused for other parts of the app
+
 import React, { Component } from 'react'
 import Aux from '../../hoc/Aux'
 import Backdrop from '../Backdrop/Backdrop'
