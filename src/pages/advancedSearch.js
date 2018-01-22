@@ -13,7 +13,7 @@ class AdvancedSearch extends Component {
         <AdvancedFilterBanner />
         <div>Advanced Search Typeform here</div>
         <div class='search-button-block'>
-          <button className='basic-button green2'>View Results</button>
+          <button className='basic-button green2-border'>View Results</button>
         </div>
       </Aux>
     )

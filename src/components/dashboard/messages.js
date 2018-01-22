@@ -17,11 +17,25 @@ const messagesArray = [
     date: '2-28-2018',
     sender: 'Brandon',
     subject: 'RE: Honda Civic'
+  },
+  {
+    date: '2-26-2018',
+    sender: 'Susan',
+    subject: 'Honda Civic'
   }
 ]
 
-const messageList = messagesArray.map(message => {
-  return <Message date={message.date} sender={message.sender} subject={message.subject} />
+const messageList = messagesArray.map((message, index) => {
+  let background = '#ffffff'
+  if (index % 2 !== 0) {
+    background = '#d8eff4'
+  }
+  return <Message
+    key={index}
+    date={message.date}
+    sender={message.sender}
+    subject={message.subject}
+    background={background}/>
 })
 
 const Messages = (props) => {

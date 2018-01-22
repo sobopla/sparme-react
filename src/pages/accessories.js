@@ -10,7 +10,7 @@ const Accessories = () => {
 			</div>
       <AccessoriesBlock />
 			<div className='flex-center'>
-				<button className='basic-button blue3'>Select These Accessories</button>
+				<button className='basic-button blue3-border'>Select These Accessories</button>
 			</div>
 		</div>
 	)

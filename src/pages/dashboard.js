@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UpcomingAppointments from '../components/dashboard/upcomingAppointments'
-import DashboardSavedVehicles from '../components/dashboard/dashboardSavedVehicles'
+import DashboardSavedVehicles from '../containers/dashboard/dashboardSavedVehicles'
 import TradeIn from '../components/dashboard/tradeIn'
 import Messages from '../components/dashboard/messages'
 
