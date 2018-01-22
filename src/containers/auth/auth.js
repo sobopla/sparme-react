@@ -42,17 +42,8 @@ class Auth extends Component {
     })
   }
 
-  googleAuth = () => {
-    console.log('ok')
-    auth.signInWithPopup(providers['google'])
-      .then((result) => {
-        console.log(result.user)
-      })
-  }
-
-  facebookAuth = () => {
-    console.log('fb')
-    auth.signInWithPopup(providers['facebook'])
+  authProviderPopup = (prov) => {
+    auth.signInWithPopup(providers[prov])
       .then((result) => {
         console.log(result.user)
       })
@@ -66,9 +57,7 @@ class Auth extends Component {
                modalClosed={this.removeModalHandler}>
           <Register showHoorayModal={this.hoorayHandler}
                     showSignInModal = {this.signInHandler}
-                    googleAuth= {this.googleAuth}
-                    facebookAuth= {this.facebookAuth}
-                  />
+                    popupCallback = {this.authProviderPopup} />
         </Modal>
         <Modal show={this.state.hooray}
                modalClosed={this.removeModalHandler}
