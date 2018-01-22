@@ -1,9 +1,10 @@
 import { CHANGE_AUTH } from '../actions/types.js'
-
-export default function reducer(state = false, action) {
+const initialState = { auth: {} }
+export default function reducer(state = initialState, action) {
+	// console.log('reducer! : ' + action.user)
 	switch (action.type) {
 		case CHANGE_AUTH:
-			return action.payload
+			return { auth: action.auth }
 			break
 
 		default:
