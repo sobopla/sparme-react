@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class SavedVehicles extends Component {
   render(){
     return (
-      <div>saved vehicles</div>
+      <div className='saved-vehicles-page'>saved vehicles</div>
     )
   }
 }
