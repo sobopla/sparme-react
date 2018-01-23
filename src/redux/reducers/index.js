@@ -6,5 +6,5 @@ import authenticationReducer from './authentication'
 export default combineReducers({
 	text: textReducer,
 	results: resultsReducer,
-	authenticated: authenticationReducer
+	authentication: authenticationReducer
 })

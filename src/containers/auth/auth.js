@@ -8,6 +8,10 @@ import Hooray from '../../components/auth/hooray'
 
 import {auth, providers} from './firebase.js';
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { changeAuth } from '../../redux/actions/changeAuth'
+
 class Auth extends Component {
   state = {
     registration: true,
@@ -46,6 +50,10 @@ class Auth extends Component {
     auth.signInWithPopup(providers[prov])
       .then((result) => {
         console.log(result.user)
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        this.props.changeAuth(result.user)
       })
   }
 
@@ -77,4 +85,17 @@ class Auth extends Component {
 
 }
 
-export default Auth
+function mapStateToProps(state) {
+  return {
+    text: state.text.value,
+    results: state.results,
+    authentication: state.auth
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({changeAuth: changeAuth}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth)
+// export default Auth

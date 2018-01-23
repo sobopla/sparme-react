@@ -3,7 +3,7 @@ import Aux from '../../hoc/Aux'
 import { connect } from 'react-redux'
 
 import {auth} from './firebase.js'
-// import * as actions from '../../redux/actions'
+import { login } from '../../redux/actions/changeAuth'
 
 class register extends Component {
 
@@ -45,8 +45,7 @@ class register extends Component {
   }
 }
 
-// function mapStateToProps (state) {
-//   return { authenticated: state.authenticated }
-// }
 
-export default connect()(register)
+
+//export default connect(mapStateToProps, mapDispatchToProps)(register)
+export default register

@@ -13,10 +13,11 @@ import Accessories from '../pages/accessories'
 import SavedVehicles from '../pages/savedVehicles'
 import Financing from '../pages/financing'
 
+import { connect } from 'react-redux'
+
 class Layout extends Component {
-
   render(){
-
+    console.log(this.props.authentication)
     return (
       <Aux>
         <Header />
@@ -33,4 +34,10 @@ class Layout extends Component {
 
 }
 
-export default Layout
+function mapStateToProps(state) {
+  return {
+    authentication: state.authentication
+  };
+}
+
+export default connect(mapStateToProps)(Layout)
