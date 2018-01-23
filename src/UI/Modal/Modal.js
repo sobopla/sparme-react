@@ -5,6 +5,7 @@
 import React, { Component } from 'react'
 import Aux from '../../hoc/Aux'
 import Backdrop from '../Backdrop/Backdrop'
+import TransparentBackdrop from '../Backdrop/TransparentBackdrop'
 
 class Modal extends Component {
 
@@ -13,10 +14,17 @@ class Modal extends Component {
   }
 
   render(){
+    //backdrop with blue gradient, can show confetti
+    let backdrop = <Backdrop show={this.props.show} clicked={this.props.modalClosed} confetti={this.props.makeConfetti}/>
+
+    //transparent black backdrop
+    if (this.props.transparent) {
+      backdrop = <TransparentBackdrop show={this.props.show} clicked={this.props.modalClosed} />
+    }
 
     return (
       <Aux>
-        <Backdrop show={this.props.show} clicked={this.props.modalClosed} confetti={this.props.makeConfetti}/>
+          {backdrop}
           <div className='modal'
             style={{
               transform: this.props.show ? 'translateX(0)' :'translateX(100vw)',

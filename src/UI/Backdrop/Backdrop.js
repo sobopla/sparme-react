@@ -8,6 +8,10 @@ let confetti = null
 class Backdrop extends Component {
   render() {
 
+    let classes = this.props.transparent ? 'backdrop transparent' : 'backdrop blue-gradient'
+
+    console.log(classes);
+
     if (this.props.confetti) {
       confetti =
           <Confetti
@@ -33,7 +37,7 @@ class Backdrop extends Component {
 
     return this.props.show ?
       <div
-        className='backdrop'
+        className={classes}
         onClick={this.props.clicked}
         makeConfetti={this.makeConfettiHandler}>
         {confetti}
