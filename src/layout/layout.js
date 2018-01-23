@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 import Aux from '../hoc/Aux'
 import Header from "../components/header"
@@ -17,7 +17,7 @@ import { connect } from 'react-redux'
 
 class Layout extends Component {
   render(){
-    console.log(this.props.authentication)
+    // console.log(this.props.authentication)
     return (
       <Aux>
         <Header />
@@ -34,10 +34,12 @@ class Layout extends Component {
 
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     authentication: state.authentication
   };
 }
 
-export default connect(mapStateToProps)(Layout)
+// export default Layout
+
+export default withRouter(connect(mapStateToProps)(Layout))
