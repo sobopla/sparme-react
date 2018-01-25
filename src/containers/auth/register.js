@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Aux from '../../hoc/Aux'
+import Aux from '../../hoc/Aux1'
 import { connect } from 'react-redux'
 
 import {auth} from './firebase.js'

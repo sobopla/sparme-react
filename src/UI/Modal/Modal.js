@@ -3,7 +3,7 @@
 //can be reused for other parts of the app
 
 import React, { Component } from 'react'
-import Aux from '../../hoc/Aux'
+import Aux from '../../hoc/Aux1'
 import Backdrop from '../Backdrop/Backdrop'
 import TransparentBackdrop from '../Backdrop/TransparentBackdrop'
 

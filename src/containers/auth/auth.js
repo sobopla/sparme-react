@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Aux from '../../hoc/Aux'
+import Aux from '../../hoc/Aux1'
 import Modal from '../../UI/Modal/Modal'
 import Register from './register'
 import SignIn from './signIn'
@@ -69,7 +69,8 @@ class Auth extends Component {
         </Modal>
         <Modal show={this.state.hooray}
                modalClosed={this.removeModalHandler}
-               makeConfetti={true}
+               // makeConfetti={true}
+               transparent={true}
                >
           <Hooray modalClosed={this.removeModalHandler}/>
         </Modal>
