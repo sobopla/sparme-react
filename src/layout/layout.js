@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Route, withRouter } from 'react-router-dom'
 
-import Aux from '../hoc/Aux'
+import Aux from '../hoc/Aux1'
 import Header from "../components/header"
 import Auth from '../containers/auth/auth'
 
