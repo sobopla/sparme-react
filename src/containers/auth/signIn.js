@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 import {auth} from './firebase.js'
-// import * as actions from '../../redux/actions'
+import { bindActionCreators } from 'redux'
+import { changeAuth } from '../../redux/actions/changeAuth'
 
 class signIn extends Component {
 
@@ -14,8 +15,10 @@ class signIn extends Component {
       console.log(error.code)
       console.log(error.message)
     })
-    console.log(auth.currentUser)
-    //this.props.authenticate(true)
+    .then(() => {
+      console.log(auth.currentUser)
+      this.props.changeAuth(true)
+    })
   }
 
   render(){
@@ -39,8 +42,12 @@ class signIn extends Component {
   }
 }
 
-// function mapStateToProps (state) {
-//   return { authenticated: state.authenticated }
-// }
+function mapStateToProps (state) {
+  return { user: state.user }
+}
 
-export default connect()(signIn)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({changeAuth: changeAuth}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(signIn)

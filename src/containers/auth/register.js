@@ -3,7 +3,7 @@ import Aux from '../../hoc/Aux'
 import { connect } from 'react-redux'
 
 import {auth} from './firebase.js'
-import { login } from '../../redux/actions/changeAuth'
+
 
 class register extends Component {
 

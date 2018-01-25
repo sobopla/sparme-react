@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
+import firebase from 'firebase'
 
 export default class NavBurger extends React.Component {
 	constructor(props) {
@@ -16,7 +17,6 @@ export default class NavBurger extends React.Component {
 			isClicked: !prevState.isClicked
 		}))
 	}
-
 	render() {
 		return (
 			<div className='menu-wrapper'>
@@ -48,7 +48,7 @@ export default class NavBurger extends React.Component {
 							</Link>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link'  to="" onClick={this.handleClick}>
+							<Link className='nav-link' to="/" onClick={this.props.logout.bind(this)}>
 								<div>Logout</div>
 							</Link>
 						</li>

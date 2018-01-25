@@ -6,19 +6,32 @@ import Register from './register'
 import SignIn from './signIn'
 import Hooray from '../../components/auth/hooray'
 
-import {auth, providers} from './firebase.js';
+import firebase, {auth, providers} from './firebase.js';
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { changeAuth } from '../../redux/actions/changeAuth'
 
 class Auth extends Component {
-  state = {
-    registration: true,
-    signIn: false,
-    hooray: false,
-    confirm: false
+  constructor(props) {
+    super(props)
+    this.state = {
+      registration: true,
+      signIn: false,
+      hooray: false,
+      confirm: false
+    }
   }
+
+  // componentDidMount() {
+  //   if(auth.currentUser) {
+  //     this.removeModalHandler()
+  //     this.props.changeAuth(true)
+  //   }
+  //   else {
+  //     this.props.changeAuth(false)
+  //   }
+  // }
 
   removeModalHandler = () => {
     this.setState({
@@ -49,16 +62,18 @@ class Auth extends Component {
   authProviderPopup = (prov) => {
     auth.signInWithPopup(providers[prov])
       .then((result) => {
-        console.log(result.user)
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        this.props.changeAuth(result.user)
+        this.props.changeAuth(true)
       })
+      this.removeModalHandler()
+  }
+
+  logout = () => {
+    firebase.auth().signOut()
+    console.log('called logout from auth.js')
+    this.setState({registration: true})
   }
 
   render(){
-
     return (
       <Aux>
         <Modal show={this.state.registration}
@@ -89,7 +104,7 @@ function mapStateToProps(state) {
   return {
     text: state.text.value,
     results: state.results,
-    authentication: state.auth
+    authentication: state.authentication
   };
 }
 
