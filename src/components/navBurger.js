@@ -1,72 +1,65 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import { connect } from 'react-redux'
 
+
 class NavBurger extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = { isClicked: false }
-		this.handleClick = this.handleClick.bind(this)
-	}
-	showSettings (event) {
-    event.preventDefault();
-  }
-	handleClick() {
-		this.setState(prevState => ({
-			isClicked: !prevState.isClicked
-		}))
-	}
+
 	render() {
+
 		return (
 			<div className='menu-wrapper'>
 				<Menu right>
 					<ul className='nav-options'>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/saved-vehicles" onClick={this.handleClick}>
-								<div>My Saved Vehicles</div>
-							</Link>
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/saved-vehicles" >
+								My Saved Vehicles
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link' to="/dashboard" onClick={this.handleClick}>
-								<div>Dashboard</div>
-							</Link>
+							<NavLink className='nav-link' activeClassName='nav-active' to="/dashboard" >
+								Dashboard
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link' to="/search" onClick={this.handleClick}>
-								<div>Search</div>
-							</Link>
+							<NavLink className='nav-link' activeClassName='nav-active' to="/search" >
+								Search
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/financing" onClick={this.handleClick}>
-								<div>Financing</div>
-							</Link>
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/financing" >
+								Financing
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/accessories" onClick={this.handleClick}>
-								<div>Accessories</div>
-							</Link>
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/accessories" >
+								Accessories
+							</NavLink>
 						</li>
 						<li className="menu-item">
+
 							{ this.props.user ? 
-								<Link className='nav-link' to="/" onClick={this.props.logout.bind(this)}>
+								<NavLink className='nav-link' to="/" onClick={this.props.logout.bind(this)}>
 									<div>Logout</div>
-								</Link>
+								</NavLink>
 								:
-								<Link className='nav-link' to="/" onCick={this.handleClick}>
+								<NavLink className='nav-link' to="/" >
 									<div>Login</div>
-								</Link>
+								</NavLink>
 							}
+
 						</li>
 					</ul>
       </Menu>
 		</div>
 		)
-	}
 }
+
 
 function mapStateToProps (state) {
 	return { user: state.user }
 }
 
 export default connect(mapStateToProps)(NavBurger)
+

@@ -6,22 +6,22 @@ const nav = () => {
     <nav className='nav-web'>
       <ul className='flex-media'>
         <li>
-          <NavLink to='/saved-vehicles' className='nav-item'>Saved Vehicles</NavLink>
+          <NavLink to='/saved-vehicles' className='nav-item' activeClassName='nav-active'>Saved Vehicles</NavLink>
         </li>
         <li>
-          <NavLink to='/dashboard' className='nav-item'>Dashboard</NavLink>
+          <NavLink to='/dashboard' className='nav-item' activeClassName='nav-active'>Dashboard</NavLink>
         </li>
         <li>
-          <NavLink to='/search' className='nav-item'>Search</NavLink>
+          <NavLink to='/search' className='nav-item' activeClassName='nav-active'>Search</NavLink>
         </li>
         <li>
-          <NavLink to='/financing' className='nav-item'>Financing</NavLink>
+          <NavLink to='/financing' className='nav-item' activeClassName='nav-active'>Financing</NavLink>
         </li>
         <li>
-          <NavLink to='/accessories' className='nav-item'>Accessories</NavLink>
+          <NavLink to='/accessories' className='nav-item' activeClassName='nav-active'>Accessories</NavLink>
         </li>
         <li>
-          <NavLink to='/' className='nav-item'>Logout</NavLink>
+          <NavLink to='/' className='nav-item' >Logout</NavLink>
         </li>
       </ul>
     </nav>
