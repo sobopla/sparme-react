@@ -1,8 +1,8 @@
-import { CHANGE_AUTH } from "./types.js";
+import { CHANGE_AUTH } from "./types.js"
 
-export function changeAuth(auth) {
+export function changeAuth(isLoggedIn) {
   return {
     type: CHANGE_AUTH,
-    auth: auth
-  };
+    user: isLoggedIn
+  }
 }

@@ -8,7 +8,7 @@ import authenticationReducer from './authentication'
 export default combineReducers({
 	text: textReducer,
 	results: resultsReducer,
-	authentication: authenticationReducer,
+	user: authenticationReducer
 	values: valuesReducer,
 	form: formReducer
 })
