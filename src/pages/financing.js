@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import * as actions from '../redux/actions'
+import requireAuth from '../hoc/requireAuth'
 
 
 class Financing extends Component {
@@ -17,4 +17,4 @@ class Financing extends Component {
 //   return { authenticated: state.authenticated }
 // }
 
-export default connect()(Financing)
+export default connect()(requireAuth(Financing))

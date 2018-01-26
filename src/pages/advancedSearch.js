@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import * as actions from '../redux/actions'
+import requireAuth from '../hoc/requireAuth'
 
 import AdvancedFilterBanner from '../components/common/advancedFilterBanner'
 
@@ -23,4 +23,4 @@ class AdvancedSearch extends Component {
 //   return { authenticated: state.authenticated }
 // }
 
-export default connect()(AdvancedSearch)
+export default connect()(requireAuth(AdvancedSearch))
