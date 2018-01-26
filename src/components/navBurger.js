@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 
 export default class NavBurger extends React.Component {
@@ -23,34 +23,34 @@ export default class NavBurger extends React.Component {
 				<Menu right>
 					<ul className='nav-options'>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/saved-vehicles" onClick={this.handleClick}>
-								<div>My Saved Vehicles</div>
-							</Link>
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/saved-vehicles" onClick={this.handleClick}>
+								My Saved Vehicles
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link' to="/dashboard" onClick={this.handleClick}>
-								<div>Dashboard</div>
-							</Link>
+							<NavLink className='nav-link' activeClassName='nav-active' to="/dashboard" onClick={this.handleClick}>
+								Dashboard
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link' to="/search" onClick={this.handleClick}>
-								<div>Search</div>
-							</Link>
+							<NavLink className='nav-link' activeClassName='nav-active' to="/search" onClick={this.handleClick}>
+								Search
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/financing" onClick={this.handleClick}>
-								<div>Financing</div>
-							</Link>
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/financing" onClick={this.handleClick}>
+								Financing
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link'  to="/accessories" onClick={this.handleClick}>
-								<div>Accessories</div>
-							</Link>
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/accessories" onClick={this.handleClick}>
+								Accessories
+							</NavLink>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link'  to="" onClick={this.handleClick}>
-								<div>Logout</div>
-							</Link>
+							<NavLink className='nav-link'  activeClassName='nav-active' to="" onClick={this.handleClick}>
+								Logout
+							</NavLink>
 						</li>
 					</ul>
       </Menu>
