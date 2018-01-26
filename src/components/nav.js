@@ -20,6 +20,9 @@ const nav = () => {
         <li>
           <NavLink to='/accessories' className='nav-item'>Accessories</NavLink>
         </li>
+        <li>
+          <NavLink to='/' className='nav-item'>Logout</NavLink>
+        </li>
       </ul>
     </nav>
   )

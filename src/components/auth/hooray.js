@@ -10,12 +10,12 @@ const hooray = (props) => {
       <div className='flex-media'>
         <NavLink to='/showroom'>
           <button
-            className='basic-button green2'
+            className='basic-button green2-border'
             onClick={props.modalClosed}
               >Search Cars</button>
         </NavLink>
         <NavLink to='/how-it-works'>
-          <button className='basic-button green2'>See How It Works</button>
+          <button className='basic-button green2-border'>See How It Works</button>
         </NavLink>
       </div>
     </div>

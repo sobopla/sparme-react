@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Aux from '../../hoc/Aux'
+import Aux from '../../hoc/Aux1'
 import { connect } from 'react-redux'
 
 import {auth} from './firebase.js'
@@ -26,7 +26,7 @@ class register extends Component {
             <div className='wide-button fb-blue' onClick={this.props.popupCallback.bind(null, 'facebook')}>Sign in with Facebook</div>
             <div className='wide-button google-red' onClick={this.props.popupCallback.bind(null, 'google')}>Sign in with Google</div>
             <p>Already have an account?</p>
-            <button className='basic-button blue3'
+            <button className='basic-button blue3-border'
               onClick={this.props.showSignInModal}>Sign In</button>
           </div>
           <div className='flex-column'>
@@ -35,7 +35,7 @@ class register extends Component {
             <input type='password' placeholder='password' ref={(input) => {this.password = input;}}/>
             <input type='password' placeholder='confirm password' ref={(input) => {this.passwordConfirm = input;}}/>
             <button
-              className='basic-button green2'
+              className='basic-button green2-border'
               onClick={this.clickToRegister}
               >Register</button>
           </div>

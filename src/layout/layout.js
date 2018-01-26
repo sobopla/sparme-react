@@ -5,11 +5,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { changeAuth } from '../redux/actions/changeAuth'
 
-import Aux from '../hoc/Aux'
+import Aux from '../hoc/Aux1'
 import Header from "../components/header"
 import Auth from '../containers/auth/auth'
 
 import Search from '../pages/search'
+import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
 import Accessories from '../pages/accessories'
 import SavedVehicles from '../pages/savedVehicles'
@@ -18,6 +19,7 @@ import Financing from '../pages/financing'
 import firebase from '../containers/auth/firebase'
 
 class Layout extends Component {
+
     logout = () => {
       firebase.auth().signOut()
       .then(() => {
@@ -33,6 +35,7 @@ class Layout extends Component {
         <Header logout={this.logout}/>
         {this.props.user ? 'hello, user!' : <Auth />}
         <Route path='/search' component = {Search} />
+        <Route path='/advanced-search' component = {AdvancedSearch} />
         <Route path='/dashboard' component = {Dashboard} />
         <Route path='/accessories' component = {Accessories} />
         <Route path='/saved-vehicles' component = {SavedVehicles} />
@@ -48,8 +51,10 @@ const mapStateToProps = (state) => {
   };
 }
 
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({changeAuth: changeAuth}, dispatch)
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout))
+

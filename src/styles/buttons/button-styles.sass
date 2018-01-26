@@ -2,20 +2,17 @@
 
 .basic-button
   border-radius: 8px
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5)
   font-family: $font
   font-size: 19px
   padding: 12px
-  color: #fff
   text-decoration: none
   text-align: center
   margin: 40px
+  &:hover
+    cursor: pointer
 
-.green2
-  background-color: $green2
-
-.blue3
-  background-color: $blue3
-
+//wide-button used for google + fb sign in buttons
 .wide-button
   border-radius: 8px
   width: 300px
@@ -27,10 +24,8 @@
   text-align: center
   margin: 10px
 
-.fb-blue
-  background-color: #3b5998
-  color: #fff
-
-.google-red
-  background-color: #d84b37
-  color: #fff
+@media (max-width: 500px)
+  .wide-button
+    width: 200px
+    height: 37px
+    font-size: 16px

@@ -1,20 +1,51 @@
 @import 'style-guide.sass'
 
-.accessories-header
-  // font-family: $font
-  text-align: center
-  font-size: 36px
-  padding: 40px
+.accessories-wrapper
+  margin-top: 30px
 
-.accessories-select
-  font-size: 18px
-  height: 40px
-  margin: 50px
+.accessory-search-bar
+  padding-top: 120px
+  padding-bottom: 20px
+  padding-left: calc(100% - 500px)
+  background-color: $blue1
 
 .accessory-label
-  // font-family: $font
-  color: #333
+  font-family: $font
+  font-size: 16px
+  color: $blue5
   padding: 20px
 
 .accessory-search
-  padding: 20px
+  height: 30px
+  width: 190px
+  margin-right: 20px
+  padding-left: 10px
+  +border-radius
+
+.accessory-slide
+  list-style-type: none
+
+.accessory-slide-div
+  padding: 10px
+  margin-left: 10px
+  margin-right: 10px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-content: center
+  img
+    width : 250px
+    height: 104px
+
+  .accessory-name
+    font-family: $font
+    font-size: 20px
+    color: $blue5
+    text-align: center
+    padding: 5px
+  .accessory-price
+    font-family: $font
+    font-size: 18px
+    color: $gray
+    text-align: center
+    margin-bottom: 10px

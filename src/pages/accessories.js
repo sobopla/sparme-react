@@ -1,21 +1,19 @@
-import React, { Component } from 'react'
-import Aux from '../hoc/Aux'
-import { connect } from 'react-redux'
-// import * as actions from '../redux/actions'
+import React from 'react'
+import AccessoriesBlock from '../containers/accessories/accessories-block'
 
-
-class Accessories extends Component {
-  render(){
-    return (
-      <Aux>
-        <div>accessories </div>
-      </Aux>
-    )
-  }
+const Accessories = () => {
+	return (
+		<div>
+			<div className='accessory-search-bar'>
+				<label className='accessory-label'>search accessories by keyword</label>
+				<input className='accessory-search' type='text' ref={(input) => {this.searchValue = input;}}/>
+			</div>
+      <AccessoriesBlock />
+			<div className='flex-center'>
+				<button className='basic-button blue3-border'>Select These Accessories</button>
+			</div>
+		</div>
+	)
 }
 
-// function mapStateToProps (state) {
-//   return { authenticated: state.authenticated }
-// }
-
-export default connect()(Accessories)
+export default Accessories

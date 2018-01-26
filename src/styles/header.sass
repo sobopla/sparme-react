@@ -1,17 +1,24 @@
 @import './style-guide.sass'
 
 .header
+  position: fixed
+  min-width: 100vw
   min-height: 100px
   z-index: 120
   background-color: #fcfcfc
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25)
   img
     width: auto
-    height: 100px
+    height: 70px
     padding-left: 20px
     padding-top: 10px
   a
     text-decoration: none
 
-  @media (max-width: 500px)
+@media (max-width: 500px)
+  .header
     background-color: #1e847c
+    min-height: 62px
+    img
+      height: 58px
+      padding: 8px

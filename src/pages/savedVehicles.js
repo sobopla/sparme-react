@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Aux from '../hoc/Aux'
 import { connect } from 'react-redux'
 // import * as actions from '../redux/actions'
 
@@ -7,9 +6,7 @@ import { connect } from 'react-redux'
 class SavedVehicles extends Component {
   render(){
     return (
-      <Aux>
-        <div>SavedVehicles </div>
-      </Aux>
+      <div className='saved-vehicles-page'>saved vehicles</div>
     )
   }
 }

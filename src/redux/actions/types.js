@@ -1,3 +1,4 @@
 export const UPDATE_TEXT = 'UPDATE_TEXT'
 export const UPDATE_RESULTS = 'UPDATE_RESULTS'
 export const CHANGE_AUTH = 'CHANGE_AUTH'
+export const FORM_SUBMIT = 'FORM_SUBMIT'
