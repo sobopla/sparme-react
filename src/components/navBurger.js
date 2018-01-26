@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
-import firebase from 'firebase'
+import { connect } from 'react-redux'
 
-export default class NavBurger extends React.Component {
+class NavBurger extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = { isClicked: false }
@@ -48,9 +48,15 @@ export default class NavBurger extends React.Component {
 							</Link>
 						</li>
 						<li className="menu-item">
-							<Link className='nav-link' to="/" onClick={this.props.logout.bind(this)}>
-								<div>Logout</div>
-							</Link>
+							{ this.props.user ? 
+								<Link className='nav-link' to="/" onClick={this.props.logout.bind(this)}>
+									<div>Logout</div>
+								</Link>
+								:
+								<Link className='nav-link' to="/" onCick={this.handleClick}>
+									<div>Login</div>
+								</Link>
+							}
 						</li>
 					</ul>
       </Menu>
@@ -58,3 +64,9 @@ export default class NavBurger extends React.Component {
 		)
 	}
 }
+
+function mapStateToProps (state) {
+	return { user: state.user }
+}
+
+export default connect(mapStateToProps)(NavBurger)

@@ -18,26 +18,6 @@ import Financing from '../pages/financing'
 import firebase from '../containers/auth/firebase'
 
 class Layout extends Component {
-    constructor(props) {
-      super(props)
-      this.state = {isLoggedIn: false}
-    }
-
-    // firebase.auth().onAuthStateChanged(user => {
-    //   if(user) {
-    //     console.log('you are logged in now!')
-    //     this.setState({isLoggedIn: true})
-    //   }
-    //   else {
-    //     console.log("not logged in")
-    //     this.setState({isLoggedIn: false})
-    //   }
-    // })
-
-    // componentWillMount() {
-    //   console.log('ok. will mount')
-    // }
-
     logout = () => {
       firebase.auth().signOut()
       .then(() => {
@@ -45,8 +25,6 @@ class Layout extends Component {
       this.props.changeAuth(false)
       })
     }
-
-    // componentWillMount
 
   render() {
     return (

@@ -23,16 +23,6 @@ class Auth extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   if(auth.currentUser) {
-  //     this.removeModalHandler()
-  //     this.props.changeAuth(true)
-  //   }
-  //   else {
-  //     this.props.changeAuth(false)
-  //   }
-  // }
-
   removeModalHandler = () => {
     this.setState({
       registration: false,
@@ -60,7 +50,10 @@ class Auth extends Component {
   }
 
   authProviderPopup = (prov) => {
-    auth.signInWithPopup(providers[prov])
+    auth.signInWithPopup(providers[prov]).catch(function(error) {
+      console.log(error.code)
+      console.log(error.message)
+    })
       .then((result) => {
         this.props.changeAuth(true)
       })
@@ -104,7 +97,7 @@ function mapStateToProps(state) {
   return {
     text: state.text.value,
     results: state.results,
-    authentication: state.authentication
+    user: state.user
   };
 }
 
