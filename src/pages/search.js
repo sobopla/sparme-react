@@ -11,7 +11,7 @@ class Search extends Component {
     return (
       <div className='search-page'>
         <SearchOne />
-        <div className='search-button-block'>
+        <div className='search-button-block flex-media'>
           <NavLink to='/advanced-search'>
             <button className='basic-button blue3-border'>Advanced Search</button>
           </NavLink>

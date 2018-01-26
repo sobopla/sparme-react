@@ -35,6 +35,8 @@ let SearchOne = props => {
 		options.map(({name, label}) => (
 			<Field
 				style={{display: 'inline-block', width: '170px'}}
+				labelStyle={{color: '#202020', fontSize: '20px'}}
+				// disabled={true}
 				className='field'
 				key={name}
 				name={name}
