@@ -1,23 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 
-export default class NavBurger extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = { isClicked: false }
-		this.handleClick = this.handleClick.bind(this)
-	}
-	showSettings (event) {
-    event.preventDefault();
-  }
-	handleClick() {
-		this.setState(prevState => ({
-			isClicked: !prevState.isClicked
-		}))
-	}
+const NavBurger = () => {
 
-	render() {
 		return (
 			<div className='menu-wrapper'>
 				<Menu right>
@@ -56,5 +42,6 @@ export default class NavBurger extends React.Component {
       </Menu>
 		</div>
 		)
-	}
 }
+
+export default NavBurger
