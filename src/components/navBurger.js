@@ -39,7 +39,7 @@ class NavBurger extends React.Component {
 						</li>
 						<li className="menu-item">
 
-							{ this.props.user ? 
+							{ this.props.user ?
 								<NavLink className='nav-link' to="/" onClick={this.props.logout.bind(this)}>
 									<div>Logout</div>
 								</NavLink>
@@ -55,11 +55,11 @@ class NavBurger extends React.Component {
 		</div>
 		)
 }
+}
 
 
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
 	return { user: state.user }
 }
 
 export default connect(mapStateToProps)(NavBurger)
-
