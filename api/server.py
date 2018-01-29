@@ -13,16 +13,11 @@ manufacturerInfo = db.ManufacturerInfo
 
 class Server(BaseHTTPRequestHandler):
 
-	def parseRequest(self, req={}):
-		if 'make' in req:
-			return dbstuff.getCarsOfMake(req['make'])
-		if 'model' in req:
-			a = []
-		return {}
-
-	def getCar(self, req={}):
+	def getCars(self, req={}):
 		return [x for x in inventory.find(req)]
-		# return inventory.find(req)
+
+	def getManuInfo(self, req={}):
+		return [x for x in manufacturerInfo.find(req)]
 		
 	def do_HEAD(s):
 		s.send_response(200)
@@ -44,20 +39,20 @@ class Server(BaseHTTPRequestHandler):
 		self.end_headers()
 
 		content_len = int(self.headers['content-length'])
+		body = json.loads((self.rfile.read(content_len)).decode("utf-8"))
 
-		self.body = json.loads((self.rfile.read(content_len)).decode("utf-8"))
-		# print(self.body)
-
-		
-		res = self.getCar(self.body)
-		self.wfile.write(bytes(json.dumps(res), "utf-8"))
+		if 'manu' in body:
+			req = body['manu']
+			res = self.getManuInfo(req)
+			self.wfile.write(bytes(json.dumps(res), "utf-8"))
+		else:
+			res = self.getCars(body)
+			self.wfile.write(bytes(json.dumps(res), "utf-8"))
 
 class DataHandler():
 	def __init__(self):
 		print('constructor!')
 		self.data = {}
-		
-		
 
 serv = HTTPServer((hostName, hostPort), Server)
 print(time.asctime(), "Server Starts - %s:%s" % (hostName, hostPort))
