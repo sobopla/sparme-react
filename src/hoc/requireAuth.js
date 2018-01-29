@@ -7,16 +7,21 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 export default function(ComposedComponent) {
-  class Authentication extends Component {
+  class requireAuth extends Component {
     render(){
-      console.log(this.props.authenticated);
-      return <ComposedComponent {...this.props} />
+      console.log(this.props.user);
+      if(this.props.user) {
+        return <ComposedComponent {...this.props} />
+      }
+      else {
+        return "You're not even logged in! Nice try, loser"
+      }
     }
   }
 
   function mapStateToProps(state) {
-    return { authenticated: state.authenticated}
+    return { user: state.user}
   }
 
-  return connect(mapStateToProps)(Authentication)
+  return connect(mapStateToProps)(requireAuth)
 }

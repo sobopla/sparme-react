@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-// import * as actions from '../redux/actions'
+import requireAuth from '../hoc/requireAuth'
 
 import SearchOne from '../containers/search/basic-search'
 
@@ -26,4 +26,4 @@ class Search extends Component {
 //   return { authenticated: state.authenticated }
 // }
 
-export default connect()(Search)
+export default requireAuth(Search)

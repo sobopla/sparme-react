@@ -9,7 +9,7 @@ class Header extends Component {
 		return (
 			<header className='flex-between header'>
 				<Logo />
-				<Nav />
+				<Nav logout={this.props.logout}/>
 				<NavBurger logout={this.props.logout}/>
 				{/* <DealershipPortalButton /> */}
 			</header>

@@ -3,6 +3,7 @@ import UpcomingAppointments from '../components/dashboard/upcomingAppointments'
 import DashboardSavedVehicles from '../containers/dashboard/dashboardSavedVehicles'
 import TradeIn from '../components/dashboard/tradeIn'
 import Messages from '../components/dashboard/messages'
+import requireAuth from '../hoc/requireAuth'
 
 const Dashboard = () => {
     return (
@@ -15,4 +16,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default requireAuth(Dashboard)

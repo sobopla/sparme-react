@@ -1,5 +1,6 @@
 import React from 'react'
 import AccessoriesBlock from '../containers/accessories/accessories-block'
+import requireAuth from '../hoc/requireAuth'
 
 const Accessories = () => {
 	return (
@@ -16,4 +17,4 @@ const Accessories = () => {
 	)
 }
 
-export default Accessories
+export default requireAuth(Accessories)
