@@ -5,7 +5,7 @@
   margin-left: calc(100% - 500px)
 
 .form-section
-  border-bottom: solid 1px #ccc
+  border-bottom: solid 1px $light-gray
   padding: 20px
 
 .form-section-heading
@@ -13,10 +13,14 @@
   font-family: sans-serif
   font-size: 30px
   padding: 15px
-  color: #ccc
+  color: $light-gray
 
 .field
   padding: 20px 0
+
+.active
+  .form-section-heading
+    color: $gray  
 
 @media ( max-width: 500px )
   .search-button-block
