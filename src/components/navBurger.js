@@ -54,6 +54,7 @@ class NavBurger extends React.Component {
       </Menu>
 		</div>
 		)
+	}
 }
 
 
