@@ -8,7 +8,7 @@ export default function reducer(state = initialState, action) {
 			break
 
 		default:
-			return initialState
+			return state
 			break
 	}
 }
