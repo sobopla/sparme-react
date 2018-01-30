@@ -6,8 +6,11 @@ const nav = () => {
     <nav className='nav-web'>
       <ul className='flex-media'>
         <li>
-          <NavLink to='/saved-vehicles' className='nav-item' activeClassName='nav-active'>Saved Vehicles</NavLink>
+          <NavLink to='/blog' className='nav-item' activeClassName='nav-active'>Blog</NavLink>
         </li>
+        {/* <li>
+          <NavLink to='/dashboard' className='nav-item' activeClassName='nav-active'>Saved Vehicles</NavLink>
+        </li> */}
         <li>
           <NavLink to='/dashboard' className='nav-item' activeClassName='nav-active'>Dashboard</NavLink>
         </li>

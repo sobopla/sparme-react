@@ -53,7 +53,12 @@ class SearchOne extends Component {
 			types: false,
 			makes: false,
 			models: false,
-			prices: false
+			prices: false,
+			zipOK: false,
+			typeOK: false,
+			makeOK: false,
+			modelOK: false,
+			priceOK: false
     };
   }
 	//React scroll functionality

@@ -13,10 +13,15 @@ class NavBurger extends React.Component {
 				<Menu right>
 					<ul className='nav-options'>
 						<li className="menu-item">
-							<NavLink className='nav-link'  activeClassName='nav-active' to="/saved-vehicles" >
-								My Saved Vehicles
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/blog" >
+								Blog
 							</NavLink>
 						</li>
+						{/* <li className="menu-item">
+							<NavLink className='nav-link'  activeClassName='nav-active' to="/dashboard" >
+								My Saved Vehicles
+							</NavLink>
+						</li> */}
 						<li className="menu-item">
 							<NavLink className='nav-link' activeClassName='nav-active' to="/dashboard" >
 								Dashboard
@@ -39,7 +44,7 @@ class NavBurger extends React.Component {
 						</li>
 						<li className="menu-item">
 
-							{ this.props.user ? 
+							{ this.props.user ?
 								<NavLink className='nav-link' to="/" onClick={this.props.logout.bind(this)}>
 									<div>Logout</div>
 								</NavLink>
@@ -63,4 +68,3 @@ function mapStateToProps (state) {
 }
 
 export default connect(mapStateToProps)(NavBurger)
-

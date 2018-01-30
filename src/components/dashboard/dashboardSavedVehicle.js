@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const dashboardSavedVehicle = (props) => {
   return (
@@ -9,7 +10,9 @@ const dashboardSavedVehicle = (props) => {
         <button className='specs-button'>view specs</button>
       </div>
       <div className='flex-center'>
-        <button className='view-accessories-button'>view accessories</button>
+        <NavLink to='/accessories' className='dash-nav'>
+          <button className='view-accessories-button'>view accessories</button>
+        </NavLink>
       </div>
     </div>
   )
