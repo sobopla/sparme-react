@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import requireAuth from '../hoc/requireAuth'
 
 const nav = (props) => {
   return (
@@ -41,4 +42,4 @@ const mapStateToProps = (state) => {
 	return { user: state.user }
 }
 
-export default connect(mapStateToProps)(nav)
+export default connect(mapStateToProps)(requireAuth(nav))
