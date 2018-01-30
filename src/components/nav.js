@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const nav = () => {
+const nav = (props) => {
   return (
     <nav className='nav-web'>
       <ul className='flex-media'>
@@ -24,11 +25,23 @@ const nav = () => {
           <NavLink to='/accessories' className='nav-item' activeClassName='nav-active'>Accessories</NavLink>
         </li>
         <li>
-          <NavLink to='/' className='nav-item' >Logout</NavLink>
+          { props.user ?
+            <NavLink className='nav-item' to="/" onClick={props.logout.bind(this)}>
+              <div>Logout</div>
+            </NavLink>
+            :
+            <NavLink className='nav-item' to="/" >
+              <div>Login</div>
+            </NavLink>
+          }
         </li>
       </ul>
     </nav>
   )
 }
 
-export default nav
+const mapStateToProps = (state) => {
+	return { user: state.user }
+}
+
+export default connect(mapStateToProps)(nav)

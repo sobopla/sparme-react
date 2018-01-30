@@ -63,7 +63,7 @@ class NavBurger extends React.Component {
 }
 
 
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
 	return { user: state.user }
 }
 
