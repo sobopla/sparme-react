@@ -6,6 +6,9 @@ import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy,
 
 import OK from '../../components/buttons/OK'
 
+
+//temporary data - can prob remove some of this tomorrow
+//and start calling from actual manufacturer data
 const prices = [
 	{ name: "$", label: "$" },
 	{ name: "$$", label: "$$" },
@@ -41,6 +44,18 @@ const types = [
 ];
 
 class SearchOne extends Component {
+	constructor(props) {
+    super(props);
+
+		//state shows the active form field
+    this.state = {
+			zip: true,
+			types: false,
+			makes: false,
+			models: false,
+			prices: false
+    };
+  }
 	//React scroll functionality
 	componentDidMount(){
 		Events.scrollEvent.register('begin', function(to, element) {
@@ -62,31 +77,49 @@ class SearchOne extends Component {
 	render(){
 		const { handleSubmit } = this.props;
 
+		//function called to scroll down the page to next form field
+		//will adjust this to take the height of the form field as a parameter
 		const scrollMore = () => {
-    	scroll.scrollMore(100);
+    	scroll.scrollMore(250);
   	}
 
-	 	let classes = {
-			zip: 'form-section active',
-			type: 'form-section',
-			make: 'form-section',
-			model: 'form-section',
-			price: 'form-section'
+		//sets the next active form field on the state
+		const nextFieldHandler = (fieldName) => {
+			scrollMore()
+			switch(fieldName){
+				case 'type': this.setState({zip: false, types: true})
+										break
+				case 'make': this.setState({types: false, makes: true})
+										break
+				case 'model': this.setState({makes: false, models: true})
+										break
+				case 'price': this.setState({models: false, prices: true})
+										break
+			}
+
 		}
 
-		const nextFieldHandler = fieldName => {
-			// classes = Object.keys(classes).map(key => {
-			// 	return {key: 'form-section'}
-			// })
-			classes.fieldName = 'form-section active'
+		//returns the state for the form field to pass into field props
+		//used for label styling and enabling/disabling checkboxes
+		const labelName = (options) => {
+			switch(options){
+				case types: return this.state.types
+				case makes: return this.state.makes
+				case models: return this.state.models
+				case prices: return this.state.prices
+			}
 		}
 
+		//the following 3 functions were set up by randal
+		//going to get into the callback functionality more tomorrow for
+		//rendering based on a previous selection
 		const renderOptions = options =>
 			options.map(({name, label}) => (
 				<Field
 					style={{display: 'inline-block', width: '170px'}}
-					labelStyle={{color: 'rgba(32, 32, 32, 0.35)', fontSize: '20px'}}
-					// disabled={true}
+					//renders label style according to active state of the field
+					labelStyle={labelName(options) === true ? {color: '#202020', fontSize: '20px'} : {color: '#ccc', fontSize: '20px'}}
+					disabled={!labelName(options)}
 					className='field'
 					key={name}
 					name={name}
@@ -115,27 +148,17 @@ class SearchOne extends Component {
 					name={name}
 					label={label}
 					style={{display: 'inline-block', width: '170px'}}
-					labelStyle={{color: 'rgba(32, 32, 32, 0.35)', fontSize: '20px'}}
-					disabled={false}
+					labelStyle={labelName(options) === true ? {color: '#202020', fontSize: '20px'} : {color: '#ccc', fontSize: '20px'}}
+					disabled={!labelName(options)}
 					className='field'
 					component={Checkbox}
 					onClick={() => callback(modify, name)}
 				/>
 			));
 
-		// const zipOK = null
-    //
-		// const Okay = () => {
-		// 	console.log('keyup');
-		// 	this.zipOK = <button>OK</button>
-		// }
-		const zipHandler = () => {
-			console.log(this.refs.zipcode);
-		}
-
 		return (
 			<Form>
-				<div className={classes.zip}>
+				<div className={this.state.zip === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading' >Zip Code</div>
 					<Field
 						ref='zipcode'
@@ -145,24 +168,27 @@ class SearchOne extends Component {
 						component={TextField}
 						// onKeyUp={Okay}
 					/>
-						<div className='OK' onClick={nextFieldHandler('type')}>OK</div>
+						{/* OK Button currently activates and scrolls to next field,
+							still needs process input and update options for next field,
+							might refactor to OK button component */}
+						<div className='OK' onClick={()=>nextFieldHandler('type')}>OK</div>
 				</div>
-				<div className={classes.type} name='field-type'>
+				<div className={this.state.types === true ? 'form-section active' : 'form-section'} name='field-type'>
 					<div className='form-section-heading'>Vehicle Type</div>
 					<div>{renderOptionsWithCallback(types, makes, optionsCallback)}</div>
-					<div className='OK' >OK</div>
+					<div className='OK'  onClick={()=>nextFieldHandler('make')}>OK</div>
 				</div>
-				<div className='form-section'>
+				<div className={this.state.makes === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Make</div>
 					<div>{renderOptions(makes)}</div>
-					<div className='OK' >OK</div>
+					<div className='OK'  onClick={()=>nextFieldHandler('model')}>OK</div>
 				</div>
-				<div className='form-section'>
+				<div className={this.state.models === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Model</div>
 					<div>{renderOptions(models)}</div>
-					<div className='OK' >OK</div>
+					<div className='OK'  onClick={()=>nextFieldHandler('price')}>OK</div>
 				</div>
-				<div className='form-section'>
+				<div className={this.state.prices === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Price</div>
 					<div>{renderOptions(prices)}</div>
 					<div className='OK' >OK</div>
