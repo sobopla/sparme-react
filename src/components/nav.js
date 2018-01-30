@@ -7,11 +7,8 @@ const nav = (props) => {
     <nav className='nav-web'>
       <ul className='flex-media'>
         <li>
-          <NavLink to='/blog' className='nav-item' activeClassName='nav-active'>Blog</NavLink>
+          <NavLink to='https://how2car.wordpress.com/blog/' target='blank' className='nav-item' activeClassName='nav-active'>Blog</NavLink>
         </li>
-        {/* <li>
-          <NavLink to='/dashboard' className='nav-item' activeClassName='nav-active'>Saved Vehicles</NavLink>
-        </li> */}
         <li>
           <NavLink to='/dashboard' className='nav-item' activeClassName='nav-active'>Dashboard</NavLink>
         </li>

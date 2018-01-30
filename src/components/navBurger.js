@@ -13,15 +13,10 @@ class NavBurger extends React.Component {
 				<Menu right>
 					<ul className='nav-options'>
 						<li className="menu-item">
-							<NavLink className='nav-link'  activeClassName='nav-active' to="/blog" >
+							<NavLink className='nav-link'  activeClassName='nav-active' to="https://how2car.wordpress.com/blog/" target='blank' >
 								Blog
 							</NavLink>
 						</li>
-						{/* <li className="menu-item">
-							<NavLink className='nav-link'  activeClassName='nav-active' to="/dashboard" >
-								My Saved Vehicles
-							</NavLink>
-						</li> */}
 						<li className="menu-item">
 							<NavLink className='nav-link' activeClassName='nav-active' to="/dashboard" >
 								Dashboard
