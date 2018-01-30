@@ -13,7 +13,7 @@ import Search from '../pages/search'
 import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
 import Accessories from '../pages/accessories'
-import SavedVehicles from '../pages/savedVehicles'
+import Blog from '../pages/blog'
 import Financing from '../pages/financing'
 
 import firebase from '../containers/auth/firebase'
@@ -38,7 +38,7 @@ class Layout extends Component {
         <Route path='/advanced-search' component = {AdvancedSearch} />
         <Route path='/dashboard' component = {Dashboard} />
         <Route path='/accessories' component = {Accessories} />
-        <Route path='/saved-vehicles' component = {SavedVehicles} />
+        <Route path='/blog' component = {Blog} />
         <Route path='/financing' component = {Financing} />
       </Aux>
     )
@@ -57,4 +57,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout))
-
