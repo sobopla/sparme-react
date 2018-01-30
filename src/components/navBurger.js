@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import { connect } from 'react-redux'
-
+import requireAuth from '../hoc/requireAuth'
 
 class NavBurger extends React.Component {
 
@@ -62,4 +62,4 @@ const mapStateToProps = (state) => {
 	return { user: state.user }
 }
 
-export default connect(mapStateToProps)(NavBurger)
+export default connect(mapStateToProps)(requireAuth(NavBurger))

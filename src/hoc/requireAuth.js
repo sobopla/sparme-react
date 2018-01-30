@@ -14,7 +14,7 @@ export default function(ComposedComponent) {
         return <ComposedComponent {...this.props} />
       }
       else {
-        return "You're not even logged in! Nice try, loser"
+        return " "
       }
     }
   }
