@@ -3,7 +3,9 @@ import { Field, reduxForm, formValueSelector, Form } from "redux-form"
 import { TextField, Checkbox } from "redux-form-material-ui"
 import { connect } from "react-redux"
 import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSubmit'
 
+import SearchButtonBlock from '../../components/search/search-button-block'
 import OK from '../../components/buttons/OK'
 
 
@@ -63,14 +65,8 @@ class SearchOne extends Component {
   }
 	//React scroll functionality
 	componentDidMount(){
-		Events.scrollEvent.register('begin', function(to, element) {
-			console.log("begin", arguments);
-		});
-
-		Events.scrollEvent.register('end', function(to, element) {
-			console.log("end", arguments);
-		});
-
+		Events.scrollEvent.register('begin', function(to, element) {console.log("begin", arguments);});
+		Events.scrollEvent.register('end', function(to, element) {console.log("end", arguments);});
 		scrollSpy.update();
 	}
 
@@ -80,7 +76,7 @@ class SearchOne extends Component {
 	}
 
 	render(){
-		const { handleSubmit } = this.props;
+		const { handleSubmit, zipcode } = this.props;
 
 		//function called to scroll down the page to next form field
 		//will adjust this to take the height of the form field as a parameter
@@ -161,8 +157,24 @@ class SearchOne extends Component {
 				/>
 			));
 
+		const okButtonHandler = (fieldName) => {
+			switch(fieldName){
+				case 'zip': this.setState({zipOK: true})
+										break
+				case 'type': this.setState({typeOK: true})
+										break
+				case 'make': this.setState({makeOK: true})
+										break
+				case 'model': this.setState({modelOK: true})
+										break
+				case 'price': this.setState({priceOK: true})
+										break
+			}
+		}
+
 		return (
-			<Form>
+			<div>
+			<Form onSubmit={()=>handleSubmit(this.props.formSubmit)}>
 				<div className={this.state.zip === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading' >Zip Code</div>
 					<Field
@@ -171,12 +183,18 @@ class SearchOne extends Component {
 						name='zipcode'
 						label='zipcode'
 						component={TextField}
-						// onKeyUp={Okay}
+						onChange={()=>{okButtonHandler('zip')}}
 					/>
 						{/* OK Button currently activates and scrolls to next field,
-							still needs process input and update options for next field,
+							still needs to process input and update options for next field,
 							might refactor to OK button component */}
-						<div className='OK' onClick={()=>nextFieldHandler('type')}>OK</div>
+						<div
+							className='OK'
+							style={{
+	              transform: this.state.zipOK ? 'translateX(0)' :'translateX(-20px)',
+	              opacity: this.state.zipOK ? '1' : '0'
+	            }}
+							onClick={()=>nextFieldHandler('type')}>OK</div>
 				</div>
 				<div className={this.state.types === true ? 'form-section active' : 'form-section'} name='field-type'>
 					<div className='form-section-heading'>Vehicle Type</div>
@@ -196,12 +214,17 @@ class SearchOne extends Component {
 				<div className={this.state.prices === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Price</div>
 					<div>{renderOptions(prices)}</div>
-					<div className='OK' >OK</div>
+					<div className='OK' type='submit'>Submit</div>
 				</div>
 			</Form>
+			<SearchButtonBlock />
+		</div>
 		);
 	}
 };
+
+//connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
+//reduxForm: 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 
 SearchOne = reduxForm({
 	form: "contact"
@@ -209,10 +232,8 @@ SearchOne = reduxForm({
 
 const selector = formValueSelector("contact");
 SearchOne = connect(state => {
-	const isUser = selector(state, "username");
-	return {
-		isUser
-	};
-})(SearchOne);
+	const zipcode = selector(state, 'zipcode')
+	return zipcode
+}, null, formSubmit)(SearchOne);
 
 export default SearchOne;

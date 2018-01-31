@@ -15,6 +15,7 @@ import Dashboard from '../pages/dashboard'
 import Accessories from '../pages/accessories'
 import Blog from '../pages/blog'
 import Financing from '../pages/financing'
+import Pinpoint from '../pages/pinpoint'
 
 import firebase from '../containers/auth/firebase'
 
@@ -40,6 +41,7 @@ class Layout extends Component {
         <Route path='/accessories' component = {Accessories} />
         <Route path='/blog' component = {Blog} />
         <Route path='/financing' component = {Financing} />
+        <Route path='/search-results' component={Pinpoint} />
       </Aux>
     )
   }
