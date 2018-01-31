@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import time, subprocess, json
+from socketserver import ThreadingMixIn
+import time, json, threading
 from subprocess import PIPE, STDOUT
 from pymongo import MongoClient
 
@@ -28,15 +29,16 @@ class Server(BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.send_header("Content-type", "application/json")
 		self.end_headers()
-
-
 		self.wfile.write(bytes(json.dumps({"ok": "cool"}), "utf-8"))
-
 
 	def do_POST(self):
 		self.send_response(200)
 		self.send_header("Content-type", "application/json")
 		self.end_headers()
+
+		message =  threading.currentThread().getName()
+		self.wfile.write(bytes(message, "utf-8"))
+		self.wfile.write(bytes('\n', "utf-8"))
 
 		content_len = int(self.headers['content-length'])
 		body = json.loads((self.rfile.read(content_len)).decode("utf-8"))
@@ -48,13 +50,19 @@ class Server(BaseHTTPRequestHandler):
 		else:
 			res = self.getCars(body)
 			self.wfile.write(bytes(json.dumps(res), "utf-8"))
+		return
+
 
 class DataHandler():
 	def __init__(self):
 		print('constructor!')
 		self.data = {}
 
-serv = HTTPServer((hostName, hostPort), Server)
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+    """Handle requests in a separate thread."""
+
+
+serv = ThreadedHTTPServer((hostName, hostPort), Server)
 print(time.asctime(), "Server Starts - %s:%s" % (hostName, hostPort))
 
 dh = DataHandler()
