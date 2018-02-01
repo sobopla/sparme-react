@@ -8,10 +8,8 @@ export default function valuesReducer(state = {}, action) {
 				...state,
 				values: action.payload
 			}
-			break
 
 		default:
 			return state
-			break
 	}
 }

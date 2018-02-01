@@ -39,7 +39,6 @@ const messageList = messagesArray.map((message, index) => {
   }
   if (message.unread) {
     fontWeight = 'bold'
-    console.log('bold');
   }
 
   return <Message

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field, FieldArray } from "redux-form"
+import { Field } from "redux-form"
 import { Checkbox } from "redux-form-material-ui"
 import { prices, models, makes, types } from './search-data'
 

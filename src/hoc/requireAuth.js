@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 export default function(ComposedComponent) {
   class requireAuth extends Component {
     render(){
-      console.log(this.props.user);
       if(this.props.user) {
         return <ComposedComponent {...this.props} />
       }
