@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -13,7 +12,6 @@ import Search from '../pages/search'
 import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
 import Accessories from '../pages/accessories'
-import Blog from '../pages/blog'
 import Financing from '../pages/financing'
 import Pinpoint from '../pages/pinpoint'
 
@@ -39,7 +37,6 @@ class Layout extends Component {
         <Route path='/advanced-search' component = {AdvancedSearch} />
         <Route path='/dashboard' component = {Dashboard} />
         <Route path='/accessories' component = {Accessories} />
-        <Route path='/blog' component = {Blog} />
         <Route path='/financing' component = {Financing} />
         <Route path='/search-results' component={Pinpoint} />
       </Aux>

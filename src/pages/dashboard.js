@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import UpcomingAppointments from '../components/dashboard/upcomingAppointments'
 import DashboardSavedVehicles from '../containers/dashboard/dashboardSavedVehicles'
 import TradeIn from '../components/dashboard/tradeIn'

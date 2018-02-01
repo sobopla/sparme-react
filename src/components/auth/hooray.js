@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import Confetti from 'react-confetti'
 
 const hooray = (props) => {
   return (

@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { Field, reduxForm, formValueSelector, Form } from "redux-form"
-import { TextField, Checkbox } from "redux-form-material-ui"
+import { TextField } from "redux-form-material-ui"
 import { connect } from "react-redux"
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
 import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSubmit'
 
 import SearchButtonBlock from '../../components/search/search-button-block'
@@ -30,8 +30,8 @@ class SearchOne extends Component {
   }
 	//React scroll functionality
 	componentDidMount(){
-		Events.scrollEvent.register('begin', function(to, element) {console.log("begin", arguments);});
-		Events.scrollEvent.register('end', function(to, element) {console.log("end", arguments);});
+		Events.scrollEvent.register('begin');
+		Events.scrollEvent.register('end');
 		scrollSpy.update();
 	}
 
@@ -41,10 +41,11 @@ class SearchOne extends Component {
 	}
 
 	render(){
-		const { fields: { zipcode }, handleSubmit } = this.props;
+		const { zipcode, handleSubmit } = this.props;
 
 		//sets the next active form field on the state
 		const nextFieldHandler = (fieldName) => {
+			console.log('zip now' + this.props.zipcode);
 			scroll.scrollMore(200)
 			switch(fieldName){
 				case 'type': this.setState({zip: false, types: true})
@@ -64,7 +65,6 @@ class SearchOne extends Component {
 				<div className={this.state.zip === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading' >Zip Code</div>
 					<Field
-						ref='zipcode'
 						key='zipcode'
 						name='zipcode'
 						label='zipcode'
@@ -113,15 +113,14 @@ class SearchOne extends Component {
 //reduxForm: 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 
 SearchOne = reduxForm({
-	form: "basic-search",
-	destroyOnUnmount: false,
-	fields: ['zipcode', 'type', 'make', 'model', 'price']
+	form: "basicSearch",
+	destroyOnUnmount: false
 }, null, { formSubmit })(SearchOne);
 
-// const selector = formValueSelector("contact");
-// SearchOne = connect(state => {
-// 	const zipcode = selector(state, 'zipcode')
-// 	return {zipcode}
-// }, null, formSubmit)(SearchOne);
+const selector = formValueSelector("basicSearch");
+SearchOne = connect(state => {
+		const zipcode = selector(state, 'zipcode')
+		return zipcode
+})(SearchOne);
 
 export default SearchOne;

@@ -10,8 +10,6 @@ class Backdrop extends Component {
 
     let classes = this.props.transparent ? 'backdrop transparent' : 'backdrop blue-gradient'
 
-    console.log(classes);
-
     if (this.props.confetti) {
       confetti =
           <Confetti
