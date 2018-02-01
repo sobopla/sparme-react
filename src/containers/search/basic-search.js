@@ -41,7 +41,7 @@ class SearchOne extends Component {
 	}
 
 	render(){
-		const { handleSubmit, zipcode } = this.props;
+		const { fields: { zipcode }, handleSubmit } = this.props;
 
 		//sets the next active form field on the state
 		const nextFieldHandler = (fieldName) => {
@@ -84,23 +84,23 @@ class SearchOne extends Component {
 				</div>
 				<div className={this.state.types === true ? 'form-section active' : 'form-section'} name='field-type'>
 					<div className='form-section-heading'>Vehicle Type</div>
-					<div>{renderOptionsWithCallback(types, makes, optionsCallback, this.state.types)}</div>
+					<div>{renderOptions(types, 'types', this.state.types)}</div>
 					<div className='OK'  onClick={()=>nextFieldHandler('make')}>OK</div>
 				</div>
 				<div className={this.state.makes === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Make</div>
-					<div>{renderOptions(makes, this.state.makes)}</div>
+					<div>{renderOptions(makes, 'makes', this.state.makes)}</div>
 					<div className='OK'  onClick={()=>nextFieldHandler('model')}>OK</div>
 				</div>
 				<div className={this.state.models === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Model</div>
-					<div>{renderOptions(models, this.state.models)}</div>
+					<div>{renderOptions(models, 'models', this.state.models)}</div>
 					<div className='OK'  onClick={()=>nextFieldHandler('price')}>OK</div>
 				</div>
 				<div className={this.state.prices === true ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Price</div>
-					<div>{renderOptions(prices, this.state.prices)}</div>
-					<div className='OK' type='submit'>Submit</div>
+					<div>{renderOptions(prices, 'prices', this.state.prices)}</div>
+					<div className='OK'>OK</div>
 				</div>
 			</Form>
 			<SearchButtonBlock />
@@ -113,13 +113,15 @@ class SearchOne extends Component {
 //reduxForm: 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 
 SearchOne = reduxForm({
-	form: "contact"
-})(SearchOne);
+	form: "basic-search",
+	destroyOnUnmount: false,
+	fields: ['zipcode', 'type', 'make', 'model', 'price']
+}, null, { formSubmit })(SearchOne);
 
-const selector = formValueSelector("contact");
-SearchOne = connect(state => {
-	const zipcode = selector(state, 'zipcode')
-	return {zipcode}
-}, null, formSubmit)(SearchOne);
+// const selector = formValueSelector("contact");
+// SearchOne = connect(state => {
+// 	const zipcode = selector(state, 'zipcode')
+// 	return {zipcode}
+// }, null, formSubmit)(SearchOne);
 
 export default SearchOne;
