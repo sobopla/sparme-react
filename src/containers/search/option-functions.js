@@ -10,7 +10,7 @@ export function renderOptions(options, arrayName, fieldActive){
   return options.map(({name, label}, index) =>
         <Field
           style={{display: 'inline-block', width: '170px'}}
-          labelStyle={fieldActive === true ? {color: '#202020', fontSize: '20px'} : {color: '#ccc', fontSize: '20px'}}
+          labelStyle={fieldActive ? {color: '#202020', fontSize: '20px'} : {color: '#ccc', fontSize: '20px'}}
           disabled={!fieldActive}
           className='field'
           key={index}
@@ -20,6 +20,8 @@ export function renderOptions(options, arrayName, fieldActive){
         />
       )
     }
+
+
 
 export function optionsCallback(modify, value) {
   // console.log('value ' + value);
@@ -41,7 +43,7 @@ export function renderOptionsWithCallback (options, modify, callback, fieldActiv
       name={name}
       label={label}
       style={{display: 'inline-block', width: '170px'}}
-      labelStyle={fieldActive === true ? {color: '#202020', fontSize: '20px'} : {color: '#ccc', fontSize: '20px'}}
+      labelStyle={fieldActive ? {color: '#202020', fontSize: '20px'} : {color: '#ccc', fontSize: '20px'}}
       disabled={!fieldActive}
       className='field'
       component={Checkbox}
