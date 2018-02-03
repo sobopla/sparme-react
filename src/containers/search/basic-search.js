@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Field, reduxForm, formValueSelector, Form } from "redux-form"
-import { TextField } from "redux-form-material-ui"
+import { TextField, Slider } from "redux-form-material-ui"
 import { connect } from "react-redux"
 import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
 import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSubmit'
@@ -8,7 +8,9 @@ import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSub
 import SearchButtonBlock from '../../components/search/search-button-block'
 import OK from '../../components/buttons/OK'
 import { priceOptions, modelOptions, makeOptions, typeOptions } from './search-data'
-import { renderOptions, optionsCallback, renderOptionsWithCallback } from './option-functions'
+import ManufacturerData from '../../data/manufacturer/carscarscars'
+import { renderOptions } from './option-functions'
+
 
 class SearchOne extends Component {
 	constructor(props) {
@@ -21,6 +23,8 @@ class SearchOne extends Component {
 			makes: false,
 			models: false,
 			prices: false,
+			value: { min: 20, max: 40},
+			makeOptions: makeOptions,
 			modelOptions: modelOptions,
 			zipOK: false,
 			typeOK: false,
@@ -53,12 +57,13 @@ class SearchOne extends Component {
 					}
 				})
 			})
+			console.log(newArray);
 		}
 
 		//sets the next active form field on the state
 		const nextFieldHandler = (fieldName) => {
 
-			scroll.scrollMore(200)
+			scroll.scrollMore(300)
 			switch(fieldName){
 				case 'type': this.setState({zip: false, types: true})
 										break
@@ -76,9 +81,12 @@ class SearchOne extends Component {
 		}
 
 		return (
-			<div>
+			<div className='search-form'>
+			<div className='flex-center'>
+				<img className='search-bear' src='https://s3.amazonaws.com/assets.how2car/images/logo/potato-bear.png' alt='potato bear'/>
+			</div>
 			<Form onSubmit={()=>handleSubmit(this.props.formSubmit)}>
-				<div className={this.state.zip === true ? 'form-section active' : 'form-section'}>
+				<div className={this.state.zip ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading' >Zip Code</div>
 					<Field
 						key='zipcode'
@@ -87,9 +95,6 @@ class SearchOne extends Component {
 						component={TextField}
 						onChange={()=>{this.setState({zipOK: true})}}
 					/>
-						{/* OK Button currently activates and scrolls to next field,
-							still needs to process input and update options for next field,
-							might refactor to OK button component */}
 						<div
 							className='OK'
 							style={{
@@ -98,23 +103,29 @@ class SearchOne extends Component {
 	            }}
 							onClick={()=>nextFieldHandler('type')}>OK</div>
 				</div>
-				<div className={this.state.types === true ? 'form-section active' : 'form-section'} name='field-type'>
+				<div className={this.state.types ? 'form-section active' : 'form-section'} name='field-type'>
 					<div className='form-section-heading'>Vehicle Type</div>
 					<div>{renderOptions(typeOptions, 'types', this.state.types)}</div>
 					<div className='OK'  onClick={()=>nextFieldHandler('make')}>OK</div>
 				</div>
-				<div className={this.state.makes === true ? 'form-section active' : 'form-section'}>
+				<div className={this.state.makes ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Make</div>
-					<div>{renderOptions(makeOptions, 'makes', this.state.makes)}</div>
+					<div>{renderOptions(this.state.makeOptions, 'makes', this.state.makes)}</div>
 					<div className='OK'  onClick={()=>nextFieldHandler('model')}>OK</div>
 				</div>
-				<div className={this.state.models === true ? 'form-section active' : 'form-section'}>
+
+
+				<div className={this.state.models ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Model</div>
 					<div>{renderOptions(this.state.modelOptions, 'models', this.state.models)}</div>
 					<div className='OK'  onClick={()=>nextFieldHandler('price')}>OK</div>
 				</div>
-				<div className={this.state.prices === true ? 'form-section active' : 'form-section'}>
+
+
+
+				<div className={this.state.prices ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading'>Price</div>
+
 					<div>{renderOptions(priceOptions, 'prices', this.state.prices)}</div>
 					<div className='OK'>OK</div>
 				</div>

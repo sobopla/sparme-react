@@ -43,7 +43,7 @@ class AdvSearchForm extends Component {
 	}
 
 	render(){
-		const { handleSubmit, zipcode } = this.props;
+		const { handleSubmit } = this.props;
 
 		//sets the next active form field on the state
 		const nextFieldHandler = (fieldName) => {
@@ -122,7 +122,12 @@ AdvSearchForm = reduxForm({
 const selector = formValueSelector("advancedSearch");
 AdvSearchForm = connect(state => {
 	const extColor = selector(state, 'extColor')
-	return extColor
+	const engine = selector(state, 'engine')
+	const drive = selector(state, 'drive')
+	const transmission = selector(state, 'transmission')
+	const intColor = selector(state, 'intColor')
+	const trimLevel = selector(state, 'trimLevel')
+	return { extColor, engine, transmission, drive, intColor, trimLevel }
 })(AdvSearchForm);
 
 export default AdvSearchForm;
