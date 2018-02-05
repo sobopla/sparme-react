@@ -30,9 +30,8 @@ class Layout extends Component {
   render() {
     return (
       <Aux>
-        {this.props.user ? 'hotdog' : 'not hotdog'}
-        <Header logout={this.logout}/>
-        {this.props.user ? 'hello, user!' : <Auth />}
+        <Header logout={this.logout} greeting={this.props.user ? 'Hi User!' : null}/>
+        {this.props.user ? null : <Auth />}
         <Route path='/search' component = {Search} />
         <Route path='/advanced-search' component = {AdvancedSearch} />
         <Route path='/dashboard' component = {Dashboard} />
