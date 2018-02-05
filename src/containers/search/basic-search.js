@@ -46,7 +46,7 @@ class SearchOne extends Component {
 	}
 
 	render(){
-		const { zipcode, types, makes, models, prices, handleSubmit } = this.props;
+		const { fields: {zipcode, types, makes, models, prices}, handleSubmit } = this.props;
 
 		const filter = (previousValues, filterBy, nextOptions, newArray) => {
 			let typesToFilter = Object.keys(previousValues)
@@ -57,7 +57,6 @@ class SearchOne extends Component {
 					}
 				})
 			})
-			console.log(newArray);
 		}
 
 		//sets the next active form field on the state
@@ -93,8 +92,11 @@ class SearchOne extends Component {
 						name='zipcode'
 						label='zipcode'
 						component={TextField}
+						// errorText={touched && error}
+						 {...zipcode}
 						onChange={()=>{this.setState({zipOK: true})}}
 					/>
+					{/* <div>{zipcode.error}</div> */}
 						<div
 							className='OK'
 							style={{
@@ -136,22 +138,38 @@ class SearchOne extends Component {
 	}
 };
 
+function validate(values) {
+	const errors = {}
+
+	// if (values.zipcode.length < 5) {
+	// 	errors.zipcode = 'enter a value with at least 5 digits'
+	// }
+
+	if(!values.zipcode){
+		errors.zipcode = 'enter a zipcode'
+	}
+
+	return errors
+}
+
 //connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
 //reduxForm: 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 
 SearchOne = reduxForm({
 	form: "basicSearch",
-	destroyOnUnmount: false
+	destroyOnUnmount: false,
+	fields: ['zipcode', 'types', 'makes', 'models', 'prices'],
+	validate
 }, null, { formSubmit })(SearchOne);
 
-const selector = formValueSelector("basicSearch");
-SearchOne = connect(state => {
-		const zipcode = selector(state, 'zipcode')
-		const types = selector(state, 'types')
-		const makes = selector(state, 'makes')
-		const models = selector(state, 'models')
-		const prices = selector(state, 'prices')
-		return { zipcode, types, makes, models, prices }
-})(SearchOne);
+// const selector = formValueSelector("basicSearch");
+// SearchOne = connect(state => {
+// 		const zipcode = selector(state, 'zipcode')
+// 		const types = selector(state, 'types')
+// 		const makes = selector(state, 'makes')
+// 		const models = selector(state, 'models')
+// 		const prices = selector(state, 'prices')
+// 		return { zipcode, types, makes, models, prices }
+// })(SearchOne);
 
 export default SearchOne;

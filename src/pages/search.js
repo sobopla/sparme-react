@@ -1,5 +1,6 @@
 import React from 'react'
 import requireAuth from '../hoc/requireAuth'
+import ErrorBoundary from '../UI/ErrorBoundary'
 
 import SearchOne from '../containers/search/basic-search'
 
@@ -7,7 +8,9 @@ import SearchOne from '../containers/search/basic-search'
 const Search =() => {
     return (
       <div className='search-page'>
-        <SearchOne/>
+        <ErrorBoundary>
+          <SearchOne/>
+        </ErrorBoundary>        
       </div>
     )
 }
