@@ -57,7 +57,6 @@ class SearchOne extends Component {
 					}
 				})
 			})
-			console.log(newArray);
 		}
 
 		//sets the next active form field on the state
@@ -135,6 +134,16 @@ class SearchOne extends Component {
 		);
 	}
 };
+
+function validate(values) {
+	const errors = {}
+
+	if (values.zipcode.length < 5) {
+		errors.title = ''
+	}
+
+	return errors
+}
 
 //connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
 //reduxForm: 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps

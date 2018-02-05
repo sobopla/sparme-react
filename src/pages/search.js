@@ -3,7 +3,6 @@ import requireAuth from '../hoc/requireAuth'
 
 import SearchOne from '../containers/search/basic-search'
 
-
 const Search =() => {
     return (
       <div className='search-page'>
