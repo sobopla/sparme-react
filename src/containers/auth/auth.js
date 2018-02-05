@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Aux from '../../hoc/Aux1'
 import Modal from '../../UI/Modal/Modal'
+import ConfettiModal from '../../UI/Modal/ConfettiModal'
 import Register from './register'
 import SignIn from './signIn'
 import Hooray from '../../components/auth/hooray'
@@ -75,12 +76,11 @@ class Auth extends Component {
                     showSignInModal = {this.signInHandler}
                     popupCallback = {this.authProviderPopup} />
         </Modal>
-        <Modal show={this.state.hooray}
+        <ConfettiModal show={this.state.hooray}
                modalClosed={this.removeModalHandler}
-               makeConfetti={true}
                >
           <Hooray modalClosed={this.removeModalHandler}/>
-        </Modal>
+        </ConfettiModal>
         <Modal show={this.state.signIn}
                modalClosed={this.removeModalHandler}
                >
