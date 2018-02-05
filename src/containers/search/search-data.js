@@ -1,7 +1,3 @@
-//temporary data - can prob remove some of this tomorrow
-//and start calling from actual manufacturer data
-
-
 export const modelOptions = [
 	{ _id: '0120', make: 'Honda', name: "Honda", label: "Accord", type: 'car' },
 	{ _id: '0121', make: 'Honda', name: "Civic", label: "Civic", type: 'car' },
