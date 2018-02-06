@@ -25,6 +25,13 @@ class Server(BaseHTTPRequestHandler):
 		s.send_header("Content-type", "text/html")
 		s.end_headers()
 
+	def do_OPTIONS(self):
+		self.send_response(200)
+		self.send_header('Access-Control-Allow-Origin', 'http://localhost:3000')
+		self.send_header('Access-Control-Allow-Methods', 'GET, POST')
+		self.send_header('Access-Control-Allow-Headers', self.headers['Access-Control-Request-Headers'])
+		self.end_headers()
+
 	def do_GET(self):
 		self.send_response(200)
 		self.send_header("Content-type", "application/json")
@@ -33,25 +40,41 @@ class Server(BaseHTTPRequestHandler):
 
 	def do_POST(self):
 		self.send_response(200)
+		self.send_header('Access-Control-Allow-Origin', '*')
 		self.send_header("Content-type", "application/json")
 		self.end_headers()
 
-		message =  threading.currentThread().getName()
-		self.wfile.write(bytes(message, "utf-8"))
-		self.wfile.write(bytes('\n', "utf-8"))
+		# message =  threading.currentThread().getName()
+		# self.wfile.write(bytes(message, "utf-8"))
+		# self.wfile.write(bytes('\n', "utf-8"))
 
 		content_len = int(self.headers['content-length'])
 		body = json.loads((self.rfile.read(content_len)).decode("utf-8"))
+		
+		searchItems = []
+		if 'zipcode' in body:
+			zipcode = body['zipcode']
+
+		# if 'types' in body:
+		# 	for each in body['types']:
+		# 		searchItems.append({'type': each})
+
+		if 'makes' in body:
+			for each in body['makes']:
+				print(each + ': ' + str(body['makes'][each]))
+				if body['makes'][each]:
+					searchItems.append({'make': each})
+
+		dbSearch = {'$or': searchItems}
 
 		if 'manu' in body:
 			req = body['manu']
 			res = self.getManuInfo(req)
 			self.wfile.write(bytes(json.dumps(res), "utf-8"))
 		else:
-			res = self.getCars(body)
+			res = self.getCars(dbSearch)
 			self.wfile.write(bytes(json.dumps(res), "utf-8"))
 		return
-
 
 class DataHandler():
 	def __init__(self):
