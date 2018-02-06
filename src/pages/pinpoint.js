@@ -2,14 +2,20 @@ import React from 'react'
 import requireAuth from '../hoc/requireAuth'
 
 import AdvancedFilterBanner from '../components/common/advancedFilterBanner'
+import ResultsCarousel from '../containers/pinpoint/resultsCarousel'
 
 const Pinpoint = () => {
 	return (
 		<div>
 			<AdvancedFilterBanner />
-			Pinpoint
+			<ResultsCarousel priceRange={'$14,000 - $15,000'}/>
+			<ResultsCarousel priceRange={'$15,000 - $16,000'}/>
+			<ResultsCarousel priceRange={'$16,000 - $17,000'}/>
+			{/* detail view component here */}
 		</div>
 	)
 }
 
-export default requireAuth(Pinpoint)
+// export default requireAuth(Pinpoint)
+
+export default Pinpoint
