@@ -81,9 +81,6 @@ class SearchOne extends Component {
 
 		return (
 			<div className='search-form'>
-			<div className='flex-center'>
-				<img className='search-bear' src='https://s3.amazonaws.com/assets.how2car/images/logo/potato-bear.png' alt='potato bear'/>
-			</div>
 			<Form onSubmit={()=>handleSubmit(this.props.formSubmit)}>
 				<div className={this.state.zip ? 'form-section active' : 'form-section'}>
 					<div className='form-section-heading' >Zip Code</div>
