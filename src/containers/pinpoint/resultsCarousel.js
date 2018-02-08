@@ -3,6 +3,7 @@ import DashboardSavedVehicle from '../../components/dashboard/dashboardSavedVehi
 import LeftArrow from '../../components/buttons/left-arrow.js'
 import RightArrow from '../../components/buttons/right-arrow.js'
 import SearchResults from './results-data'
+import VehicleDetail from '../../components/common/vehicleDetail'
 
 class ResultsCarousel extends Component {
   constructor(props) {
@@ -73,6 +74,18 @@ class ResultsCarousel extends Component {
             <RightArrow onClick={e => this.goToNextSlide(e)} />
           </div>
         </div>
+        <VehicleDetail
+          name={'Honda Accord'}
+          image={'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg'}
+          price={'$15,500'}
+          vin={234780945487}
+          extColor={'Black Pearl'}
+          intColor={'Black Cloth'}
+          engine={'2.4l i4 Engine'}
+          transmission={'Automatic'}
+          drive={'Front Wheel Drive'}
+          mpg={'27/36'}
+        />
         </div>
 
     )

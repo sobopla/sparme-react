@@ -11,7 +11,6 @@ const Pinpoint = () => {
 			<ResultsCarousel priceRange={'$14,000 - $15,000'}/>
 			<ResultsCarousel priceRange={'$15,000 - $16,000'}/>
 			<ResultsCarousel priceRange={'$16,000 - $17,000'}/>
-			{/* detail view component here */}
 		</div>
 	)
 }
