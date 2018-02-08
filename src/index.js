@@ -14,6 +14,12 @@ const muiTheme = getMuiTheme({
   palette: {
     textColor: '#85d0d4',
   },
+  raisedButton: {
+    textColor: '#ffffff'
+  },
+  flatButton: {
+    textColor: '#85d0d4'
+  },
   stepper: {
     iconColor: '#85d0d4'
   },

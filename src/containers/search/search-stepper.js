@@ -18,58 +18,56 @@ import { priceOptions, modelOptions, makeOptions, typeOptions } from './search-d
 import ManufacturerData from '../../data/manufacturer/carscarscars'
 import { stepOptions } from './step-functions'
 
-/**
- * A basic vertical non-linear implementation
- */
-
-let modelOptionsByType, modelOptionsByMake
-
 class SearchStepper extends React.Component {
 
   state = {
     stepIndex: 0,
-    makeOptions: makeOptions,
-    modelOptions: modelOptions,
+    modelOptionsToDisplay: [],
+    modelOptionsByType: [],
     errors: {zipcode: null, type: null, make: null}
   };
 
-  filter = (previousValues, filterBy, nextOptions, newArray) => {
-    let typesToFilter = Object.keys(previousValues)
-    typesToFilter.map( type => {
-      nextOptions.map( option => {
-        if (type === option[filterBy]) {
-          newArray.push(option)
-        }
-      })
+  filter = (previousValues, filterBy, nextOptions) => {
+    let newArray
+    let keys = Object.keys(previousValues)
+    let categoriesToFilter = keys.filter(function(key) {
+      return previousValues[key]
     })
+
+    console.log('filter by ' + categoriesToFilter);
+
+    categoriesToFilter.map( category => {
+      newArray = nextOptions.filter( option => {
+        if (category === option[filterBy]) { return option }
+      })
+      }).reduce((a, b) => {return a.concat(b)},[])
+    console.log('next options ' + JSON.stringify(newArray));
+    return newArray
   }
 
-  filterByType = () => {
-    if (this.props.types !== undefined && Object.keys(this.props.types).some(k =>  this.props.types[k])) {
-      modelOptionsByType = []
-      this.filter(this.props.types, 'type', this.state.modelOptions, modelOptionsByType)
-      this.setState({ stepIndex: 2, modelOptions: modelOptionsByType, errors: {type: ''} })
+  filterByType = (nextIndex) => {
+    if (this.props.types !== undefined && Object.keys(this.props.types).some(k => this.props.types[k])) {
+      let modelOptionsByType = this.filter(this.props.types, 'type', modelOptions)
+      this.setState({ stepIndex: nextIndex, modelOptionsByType: modelOptionsByType, errors: {type: null} })
     }
     else {
       this.setState({errors: {type: 'Please select a type'}})
     }
   }
 
-  filterByMake = () => {
-    if ((this.props.types !== undefined) && (this.props.makes !== undefined)) {
-      this.filterByType()
-      modelOptionsByMake = []
-      this.filter(this.props.makes, 'make', this.state.modelOptions, modelOptionsByMake )
-      this.setState({stepIndex: 3, modelOptions: modelOptionsByMake, errors: {make: ''}})
+  filterByMake = (nextIndex) => {
+    if ((this.props.makes !== undefined) && Object.keys(this.props.makes).some(k => this.props.makes[k])) {
+      let modelOptionsByMake = this.filter(this.props.makes, 'make', this.state.modelOptionsByType)
+      this.setState({stepIndex: nextIndex, modelOptionsToDisplay: modelOptionsByMake, errors: {make: null}})
     }
     else {
       this.setState({errors: {make: 'Please select a make'}})
     }
   }
 
-  handleZip = (index) => {
+  handleZip = () => {
     if (this.props.zipcode !== undefined && this.props.zipcode.length > 4) {
-      this.setState({stepIndex: index, errors: {zipcode: null}})
+      this.setState({stepIndex: 1, errors: {zipcode: null}})
     }
     else {
       this.setState({errors: {zipcode: 'Zipcode must have at least 5 numbers'}})
@@ -94,27 +92,22 @@ class SearchStepper extends React.Component {
     switch(stepIndex){
       case 0: this.handleZip()
               break
-      case 1: this.filterByType()
+      case 1: this.filterByType(2)
               break
-      case 2: this.filterByMake()
+      case 2: this.filterByMake(3)
               break
     }
   };
 
   handlePrev = () => {
     const {stepIndex} = this.state
-    if (stepIndex === 1) {
-      let modelOptionsByType = []
-      this.filter(this.props.types, 'type', this.state.modelOptions, modelOptionsByType)
-      this.setState({ modelOptions: modelOptionsByType })
-    }
-    if (stepIndex === 2) {
-      let modelOptionsByMake = []
-      this.filter(this.props.makes, 'make', this.state.modelOptions, modelOptionsByMake )
-      this.setState({makes: false, models: true, modelOptions: modelOptionsByMake})
-    }
-    if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1})
+    switch(stepIndex){
+      case 1: this.setState({stepIndex: 0})
+              break
+      case 2: this.setState({stepIndex: 1})
+              break
+      case 3: this.setState({stepIndex: 2})
+              break
     }
   };
 
@@ -123,9 +116,8 @@ class SearchStepper extends React.Component {
       <div style={{margin: '12px 0'}}>
         {step < 3 && <RaisedButton
           backgroundColor="#85d0d4"
-          labelColor='#ffffff'
           label="Next"
-          disableTouchRipple={true}
+          disableTouchRipple={false}
           disableFocusRipple={true}
           onClick={this.handleNext}
           style={{marginRight: 12}}
@@ -133,8 +125,7 @@ class SearchStepper extends React.Component {
         {step > 0 && (
           <FlatButton
             label="Back"
-            labelColor="#85d0d4"
-            disableTouchRipple={true}
+            disableTouchRipple={false}
             disableFocusRipple={true}
             onClick={this.handlePrev}
           />
@@ -160,8 +151,7 @@ class SearchStepper extends React.Component {
           <Step>
             <StepButton onClick={() => this.setState({stepIndex: 0})}>
               <div className='custom-step-button'
-                style={this.state.stepIndex === 0 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}
-                iconStyle={{color: '#22a9a3'}}>
+                   style={this.state.stepIndex === 0 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Zipcode
               </div>
             </StepButton>
@@ -179,7 +169,7 @@ class SearchStepper extends React.Component {
           <Step>
             <StepButton onClick={() => this.setState({stepIndex: 1})}>
               <div className='custom-step-button'
-                style={this.state.stepIndex === 1 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
+                   style={this.state.stepIndex === 1 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Select Vehicle Type
               </div>
             </StepButton>
@@ -192,7 +182,7 @@ class SearchStepper extends React.Component {
           <Step>
             <StepButton onClick={() => {this.setState({stepIndex: 2})}}>
               <div className='custom-step-button'
-                style={this.state.stepIndex === 2 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
+                   style={this.state.stepIndex === 2 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Select Make
               </div>
             </StepButton>
@@ -205,12 +195,12 @@ class SearchStepper extends React.Component {
           <Step>
             <StepButton onClick={() => this.setState({stepIndex: 3})}>
               <div className='custom-step-button'
-                style={this.state.stepIndex === 3 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
+                   style={this.state.stepIndex === 3 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Select Model
               </div>
             </StepButton>
             <StepContent>
-              <div>{stepOptions(this.state.modelOptions, 'models')}</div>
+              <div>{stepOptions(this.state.modelOptionsToDisplay, 'models')}</div>
               {this.renderStepActions(3)}
             </StepContent>
           </Step>
