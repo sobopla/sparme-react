@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { bindActionCreators } from 'redux'
 import { connect } from "react-redux"
-import { formSubmit } from '../../redux/actions/formSubmit'
+import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSubmit'
 import axios from 'axios-es6'
 
 
@@ -25,7 +25,7 @@ class SearchButton extends Component {
           className='basic-button green2-border' onClick={this.handleSubmit}
           >View Results
         </button>
-      </NavLink>	
+      </NavLink>
 		)}
 }
 
