@@ -5,14 +5,32 @@ import { prices, models, makes, types } from './search-data'
 
 export function stepOptions(options, arrayName){
   return options.map(({name, label}, index) =>
-        <Field
-          style={{display: 'inline-block', width: '170px'}}
-          labelStyle={{color: '#202020', fontSize: '20px'}}
-          className='field'
-          key={index}
-          name={`${arrayName}.${name}`}
-          label={label}
-          component={Checkbox}
-        />
-      )
-    }
+    <Field
+      style={{display: 'inline-block', width: '170px'}}
+      labelStyle={{color: '#202020', fontSize: '20px'}}
+      className='field'
+      key={index}
+      name={`${arrayName}.${name}`}
+      label={label}
+      component={Checkbox}
+    />
+  )
+}
+
+
+export function filter(previousValues, filterBy, nextOptions) {
+  let newArray = []
+  let keys = Object.keys(previousValues)
+  let categoriesToFilter = keys.filter(function(key) {
+    return previousValues[key]
+  })
+  console.log('filter by ' + categoriesToFilter);
+
+  categoriesToFilter.map( category => {
+    newArray = [...newArray, nextOptions.filter( option => {
+      if (category === option[filterBy]) { return option }
+    })]
+    }).reduce((a, b) => {return a.concat(b)},[])
+  console.log('next options by ' + filterBy + ' ' + JSON.stringify([].concat(...newArray)));
+  return [].concat(...newArray)
+}

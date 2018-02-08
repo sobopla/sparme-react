@@ -16,7 +16,7 @@ import SearchButtonBlock from '../../components/search/search-button-block'
 import OK from '../../components/buttons/OK'
 import { priceOptions, modelOptions, makeOptions, typeOptions } from './search-data'
 import ManufacturerData from '../../data/manufacturer/carscarscars'
-import { stepOptions } from './step-functions'
+import { stepOptions, filter } from './step-functions'
 
 class SearchStepper extends React.Component {
 
@@ -27,26 +27,9 @@ class SearchStepper extends React.Component {
     errors: {zipcode: null, type: null, make: null}
   };
 
-  filter = (previousValues, filterBy, nextOptions) => {
-    let newArray = []
-    let keys = Object.keys(previousValues)
-    let categoriesToFilter = keys.filter(function(key) {
-      return previousValues[key]
-    })
-    console.log('filter by ' + categoriesToFilter);
-
-    categoriesToFilter.map( category => {
-      newArray = [...newArray, nextOptions.filter( option => {
-        if (category === option[filterBy]) { return option }
-      })]
-      }).reduce((a, b) => {return a.concat(b)},[])
-    console.log('next options by ' + filterBy + ' ' + JSON.stringify([].concat(...newArray)));
-    return [].concat(...newArray)
-  }
-
   filterByType = (nextIndex) => {
     if (this.props.types !== undefined && Object.keys(this.props.types).some(k => this.props.types[k])) {
-      let modelOptionsByType = this.filter(this.props.types, 'type', modelOptions)
+      let modelOptionsByType = filter(this.props.types, 'type', modelOptions)
       this.setState({ stepIndex: nextIndex, modelOptionsByType: modelOptionsByType, errors: {type: null} })
     }
     else {
@@ -56,7 +39,7 @@ class SearchStepper extends React.Component {
 
   filterByMake = (nextIndex) => {
     if ((this.props.makes !== undefined) && Object.keys(this.props.makes).some(k => this.props.makes[k])) {
-      let modelOptionsByMake = this.filter(this.props.makes, 'make', this.state.modelOptionsByType)
+      let modelOptionsByMake = filter(this.props.makes, 'make', this.state.modelOptionsByType)
       this.setState({stepIndex: nextIndex, modelOptionsToDisplay: modelOptionsByMake, errors: {make: null}})
     }
     else {
