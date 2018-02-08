@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import SearchButton from './SearchButton'
 
 const searchButtonBlock = (props) => {
   return (
@@ -10,12 +11,7 @@ const searchButtonBlock = (props) => {
           >Advanced Search
         </button>
       </NavLink>
-      <NavLink to='/search-results'>
-        <button
-          className='basic-button green2-border'
-          >View Results
-        </button>
-      </NavLink>
+      <SearchButton />
     </div>
   )
 }
