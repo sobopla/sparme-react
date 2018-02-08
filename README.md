@@ -1,23 +1,26 @@
 #DEV NOTES
-This is the consumer side application
+  - This is the consumer side application
 
-Page routes are declared in Layout.js
-Auth shows conditionally through Layout.js if user is not logged in
+  - Page routes are declared in Layout.js
 
-Each page is wrapped in a higher order component, requireAuth, that makes the page available on user sign in.
+  - Auth (registration/sign-in modal) shows conditionally through Layout.js if user is not logged in
 
-Files in the pages folder are functional components.  Declare class components under the containers folder and export them to the page.
+  - Each page is wrapped in a higher order component, requireAuth, that makes the page
+    available on user sign in.
 
-UI folder contains a Modal component that accepts a child.
-Default backdrop color for the Modal is light blue.
-For a transparent backdrop: <Modal transparent=true/>
+  - Files in the pages folder are functional components.  Declare class components under the
+    containers folder and export them to the page.
 
-Styles are in Sass because it's easy to read and uses variables.
-how2car colors and some mixins are in style-guide.sass
-All styles are globally available - take advantage of Sass nesting!
-Make sure to add new Sass files to app.sass
+  - UI folder contains a Modal component that accepts a child.
+    Default backdrop color for the Modal is light blue.
+    For a transparent backdrop: ```<Modal transparent=true/>```
 
-Flexbox classes are in flex.sass with instructions
+  - Styles are in Sass because it's easy to read and uses variables.
+    how2car colors and some mixins are in style-guide.sass
+    All styles are globally available - take advantage of Sass nesting!
+    Make sure to add new Sass files to app.sass
+
+  - Flexbox classes are in flex.sass with instructions
 
 #IMPORTANT THINGS TO REMEMBER
 
