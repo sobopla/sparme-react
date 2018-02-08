@@ -28,21 +28,20 @@ class SearchStepper extends React.Component {
   };
 
   filter = (previousValues, filterBy, nextOptions) => {
-    let newArray
+    let newArray = []
     let keys = Object.keys(previousValues)
     let categoriesToFilter = keys.filter(function(key) {
       return previousValues[key]
     })
-
     console.log('filter by ' + categoriesToFilter);
 
     categoriesToFilter.map( category => {
-      newArray = nextOptions.filter( option => {
+      newArray = [...newArray, nextOptions.filter( option => {
         if (category === option[filterBy]) { return option }
-      })
+      })]
       }).reduce((a, b) => {return a.concat(b)},[])
-    console.log('next options ' + JSON.stringify(newArray));
-    return newArray
+    console.log('next options by ' + filterBy + ' ' + JSON.stringify([].concat(...newArray)));
+    return [].concat(...newArray)
   }
 
   filterByType = (nextIndex) => {
