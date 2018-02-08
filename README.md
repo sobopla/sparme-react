@@ -2,7 +2,8 @@
   - This is the consumer side application
 
   - Page routes are declared in Layout.js
-    Auth shows conditionally through Layout.js if user is not logged in
+
+  - Auth shows conditionally through Layout.js if user is not logged in
 
   - Each page is wrapped in a higher order component, requireAuth, that makes the page
     available on user sign in.
