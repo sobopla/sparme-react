@@ -11,7 +11,8 @@ class ResultsCarousel extends Component {
 
     this.state = {
       activeIndex: 0,
-      slides: SearchResults
+      slides: SearchResults,
+      showVehicleDetail: false
     };
   }
 
@@ -47,7 +48,26 @@ class ResultsCarousel extends Component {
     });
   }
 
+  VehicleDetail = () => {
+    if (this.state.showVehicleDetail){
+      console.log('show');
+      return <VehicleDetail
+              name={'Honda Accord'}
+              image={'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg'}
+              price={'$15,500'}
+              vin={234780945487}
+              extColor={'Black Pearl'}
+              intColor={'Black Cloth'}
+              engine={'2.4l i4 Engine'}
+              transmission={'Automatic'}
+              drive={'Front Wheel Drive'}
+              mpg={'27/36'}
+            />
+    }
+  }
+
   render(){
+
     return (
       <div className='dash-saved-vehicles-wrapper'>
         <div className='dash-saved-vehicles-header'>{this.props.priceRange} </div>
@@ -66,6 +86,7 @@ class ResultsCarousel extends Component {
                   slide={this.state.slides[index]}
                   image={slide.image}
                   price={slide.price}
+                  click={()=>{this.setState({showVehicleDetail: !this.state.showVehicleDetail})}}
                 />
             ))}
             </div>
@@ -74,18 +95,7 @@ class ResultsCarousel extends Component {
             <RightArrow onClick={e => this.goToNextSlide(e)} />
           </div>
         </div>
-        <VehicleDetail
-          name={'Honda Accord'}
-          image={'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg'}
-          price={'$15,500'}
-          vin={234780945487}
-          extColor={'Black Pearl'}
-          intColor={'Black Cloth'}
-          engine={'2.4l i4 Engine'}
-          transmission={'Automatic'}
-          drive={'Front Wheel Drive'}
-          mpg={'27/36'}
-        />
+        { this.VehicleDetail() }
         </div>
 
     )
