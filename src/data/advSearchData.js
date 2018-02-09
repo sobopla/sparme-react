@@ -29,6 +29,6 @@ export const intColor = [
 ]
 
 export const trimLevel = [
-	{ name: "Lorem", label: "Lorem" },
-	{ name: "Ipsum", label: "Ipsum" }
+	{ name: "S", label: "S", priceRange: "$19,990 - $21,039" },
+	{ name: "SE", label: "SE", priceRange: "$22,827 - $27,727" }
 ]

@@ -5,12 +5,12 @@ import SearchButton from './SearchButton'
 const searchButtonBlock = (props) => {
   return (
     <div className='search-button-block flex-media'>
-      <NavLink to='/advanced-search'>
+      {/* <NavLink to='/advanced-search'>
         <button
           className='basic-button blue3-border'
           >Advanced Search
         </button>
-      </NavLink>
+      </NavLink> */}
       <SearchButton />
     </div>
   )

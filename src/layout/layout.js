@@ -9,7 +9,7 @@ import Header from "../components/header"
 import Auth from '../containers/auth/auth'
 
 import Search from '../pages/search'
-import AdvancedSearch from '../pages/advancedSearch'
+// import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
 import Accessories from '../pages/accessories'
 import Financing from '../pages/financing'
@@ -35,7 +35,6 @@ class Layout extends Component {
         {this.props.user ? null : <Auth />}
         <Route path='/home' component={Home} />
         <Route path='/search' component = {Search} />
-        <Route path='/advanced-search' component = {AdvancedSearch} />
         <Route path='/dashboard' component = {Dashboard} />
         <Route path='/accessories' component = {Accessories} />
         <Route path='/financing' component = {Financing} />
