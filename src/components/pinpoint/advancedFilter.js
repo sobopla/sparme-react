@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
+import { extColor, engine, transmission, drive, intColor, trimLevel } from '../../data/advSearchData'
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-]
+
+const extColors = []
+extColor.map(({ name }) => {
+  extColors.push(name)
+})
 
 class advancedFilter extends Component {
   state = {
@@ -23,7 +17,7 @@ class advancedFilter extends Component {
     handleChange = (event, index, values) => this.setState({values});
 
     menuItems(values) {
-      return names.map((name) => (
+      return extColors.map((name) => (
         <MenuItem
           key={name}
           insetChildren={true}
@@ -39,7 +33,7 @@ class advancedFilter extends Component {
       return (
         <SelectField
           multiple={true}
-          hintText="Select a name"
+          hintText="Select a color"
           value={values}
           onChange={this.handleChange}
         >
