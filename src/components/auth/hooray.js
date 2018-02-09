@@ -14,7 +14,10 @@ const hooray = (props) => {
               >Search Cars</button>
         </NavLink>
         <NavLink to='/home'>
-          <button className='basic-button green2-border'>See How It Works</button>
+          <button
+            className='basic-button green2-border'
+            onClick={props.modalClosed}>
+            See How It Works</button>
         </NavLink>
       </div>
     </div>

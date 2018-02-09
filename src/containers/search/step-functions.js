@@ -4,16 +4,20 @@ import { Checkbox } from "redux-form-material-ui"
 import { prices, models, makes, types } from './search-data'
 
 export function stepOptions(options, arrayName){
+  let priceRange
+  if (options.priceRange) {
+    priceRange = options.priceRange
+  }
   return options.map(({name, label}, index) =>
-    <Field
-      style={{display: 'inline-block', width: '170px'}}
-      labelStyle={{color: '#202020', fontSize: '20px'}}
-      className='field'
-      key={index}
-      name={`${arrayName}.${name}`}
-      label={label}
-      component={Checkbox}
-    />
+      <Field
+        style={{display: 'inline-block', width: '170px'}}
+        labelStyle={{color: '#202020', fontSize: '20px'}}
+        className='field'
+        key={index}
+        name={`${arrayName}.${name}`}
+        label={label}
+        component={Checkbox}
+      />
   )
 }
 
