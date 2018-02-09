@@ -27,7 +27,9 @@ class register extends Component {
               <div className='wide-button fb-blue' onClick={this.props.popupCallback.bind(null, 'facebook')}>Sign in with Facebook</div>
             </NavLink>
             <NavLink to='/home'>
-              <div className='wide-button google-red' onClick={this.props.popupCallback.bind(null, 'google')}>Sign in with Google</div>
+              <div 
+                className='wide-button google-red'
+                onClick={this.props.popupCallback.bind(null, 'google')}>Sign in with Google</div>
             </NavLink>
             <p>Already have an account?</p>
             <button className='basic-button blue3-border'
