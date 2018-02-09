@@ -7,7 +7,7 @@ const dashboardSavedVehicle = (props) => {
       <img src={props.image} />
       <div className='dash-saved-vehicle-price'>{props.price}</div>
       <div className='flex-center'>
-        <button className='specs-button'>view specs</button>
+        <button className='specs-button' onClick={props.click}>view specs</button>
       </div>
       <div className='flex-center'>
         <NavLink to='/accessories' className='dash-nav'>
