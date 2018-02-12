@@ -8,8 +8,8 @@ export const extColor = [
 ];
 
 export const engine = [
-	{ name: "Lorem", label: "Lorem" },
-	{ name: "Ipsum", label: "Ipsum" }
+	{ name: "2.0L I4", label: "2.0L I4" },
+	{ name: "3.5L V6", label: "3.5L V6" }
 ];
 
 export const transmission = [
