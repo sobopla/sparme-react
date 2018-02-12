@@ -62,6 +62,7 @@ class SearchStepper extends React.Component {
     }
   }
 
+  //called when user clicks step button directly
   handleStepClick = (index) => {
     const {stepIndex} = this.state
 
@@ -93,6 +94,8 @@ class SearchStepper extends React.Component {
                         break
                 case 1:
                 case 2: this.filterByType(stepIndex)
+                        //tried a callback for filtering by Make after Type, was glitchy.
+                        //can refactor but the timeout works for the moment
                         setTimeout(()=>{if (this.state.errors.type === null) {this.filterByMake(3)}}, 300)
                         break
                 case 3: break
@@ -101,6 +104,7 @@ class SearchStepper extends React.Component {
       }
     }
 
+  //called when user clicks Next button
   handleNext = () => {
     const {stepIndex} = this.state
     switch(stepIndex){
@@ -113,6 +117,7 @@ class SearchStepper extends React.Component {
     }
   };
 
+  //called when user clicks Back button
   handlePrev = () => { this.setState({stepIndex: this.state.stepIndex - 1}) }
 
   renderStepActions(step) {
