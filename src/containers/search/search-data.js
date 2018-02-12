@@ -41,9 +41,9 @@ export const modelOptions = [
 ];
 
 export const makeOptions = [
-	{ name: "Honda", label: "Honda", typesAvailable: ["car", "suv", "truck"]},
-	{ name: "Ford", label: "Ford", typesAvailable: ["car", "suv", "van", "hybrid", "truck", "commercial"] },
-	{ name: "Subaru", label: "Subaru", typesAvailable: ["car", "van", "suv"] }
+	// { name: "Honda", label: "Honda", typesAvailable: ["car", "suv", "truck"]},
+	// { name: "Subaru", label: "Subaru", typesAvailable: ["car", "van", "suv"] },
+	{ name: "Ford", label: "Ford", typesAvailable: ["car", "suv", "van", "hybrid", "truck", "commercial"] }
 ];
 
 export const typeOptions = [
@@ -52,7 +52,7 @@ export const typeOptions = [
 	{ name: 'hybrid', label: "Hybrid"},
 	{ name: "truck", label: "Truck" },
 	{ name: "suv", label: "SUV" },
-	{ name: "van", label: "Van / Wagon"},
+	// { name: "van", label: "Van / Wagon"},
 	{ name: "commercial", label: 'Commercial'}
 ];
 
