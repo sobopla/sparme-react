@@ -22,11 +22,11 @@ export function stepOptions(options, arrayName){
 }
 
 
-export function filter(previousValues, filterBy, nextOptions) {
+export function filter(userSelections, filterBy, nextOptions) {
   let newArray = []
-  let keys = Object.keys(previousValues)
+  let keys = Object.keys(userSelections)
   let categoriesToFilter = keys.filter(function(key) {
-    return previousValues[key]
+    return userSelections[key]
   })
   console.log('filter by ' + categoriesToFilter);
 
