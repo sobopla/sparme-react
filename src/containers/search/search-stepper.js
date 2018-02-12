@@ -12,7 +12,7 @@ import { TextField, Slider } from "redux-form-material-ui"
 import { connect } from "react-redux"
 import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSubmit'
 
-import SearchButtonBlock from '../../components/search/search-button-block'
+import SearchButton from '../../components/search/searchButton'
 import OK from '../../components/buttons/OK'
 import { priceOptions, modelOptions, makeOptions, typeOptions } from './search-data'
 import ManufacturerData from '../../data/manufacturer/carscarscars'
@@ -47,32 +47,64 @@ class SearchStepper extends React.Component {
     }
   }
 
-  handleZip = () => {
+  handleZip = (index) => {
     if (this.props.zipcode !== undefined && this.props.zipcode.length > 4) {
-      this.setState({stepIndex: 1, errors: {zipcode: null}})
+      if (index === 1 || index === 2){
+        this.setState({stepIndex: index, errors: {zipcode: null}})
+      }
+      else if (index === 3){
+        this.filterByType(this.state.stepIndex)
+        this.filterByMake(index)
+      }
     }
     else {
       this.setState({errors: {zipcode: 'Zipcode must have at least 5 numbers'}})
     }
   }
 
-  // handleStepClick = (index) => {
-  //   const {stepIndex} = this.state
-  //   switch(index){
-  //     case 0: this.setState({stepIndex: 0, modelOptions: modelOptions})
-  //             break
-  //     case 1:
-  //     this.setState({stepIndex: 1, modelOptions: modelOptions})
-  //             break
-  //     case 2: this.filterByMake()
-  //             break
-  //   }
-  // }
+  handleStepClick = (index) => {
+    const {stepIndex} = this.state
+
+    switch(index){
+      case 0: this.setState({stepIndex: 0})
+              break
+      case 1: switch(stepIndex){
+                case 0: this.handleZip(1)
+                        break
+                case 1: break
+                case 2: this.setState({stepIndex: index})
+                        break
+                case 3: this.setState({stepIndex: index})
+                        break
+              }
+              break
+      case 2: switch(stepIndex){
+                case 0: this.handleZip(2)
+                        break
+                case 1: this.filterByType(2)
+                        break
+                case 2: break
+                case 3: this.setState({stepIndex: index})
+                        break
+              }
+              break
+      case 3: switch(stepIndex){
+                case 0: this.handleZip(3)
+                        break
+                case 1:
+                case 2: this.filterByType(stepIndex)
+                        setTimeout(()=>{if (this.state.errors.type === null) {this.filterByMake(3)}}, 300)
+                        break
+                case 3: break
+              }
+              break
+      }
+    }
 
   handleNext = () => {
     const {stepIndex} = this.state
     switch(stepIndex){
-      case 0: this.handleZip()
+      case 0: this.handleZip(1)
               break
       case 1: this.filterByType(2)
               break
@@ -81,17 +113,7 @@ class SearchStepper extends React.Component {
     }
   };
 
-  handlePrev = () => {
-    const {stepIndex} = this.state
-    switch(stepIndex){
-      case 1: this.setState({stepIndex: 0})
-              break
-      case 2: this.setState({stepIndex: 1})
-              break
-      case 3: this.setState({stepIndex: 2})
-              break
-    }
-  };
+  handlePrev = () => { this.setState({stepIndex: this.state.stepIndex - 1}) }
 
   renderStepActions(step) {
     return (
@@ -131,7 +153,7 @@ class SearchStepper extends React.Component {
           orientation="vertical"
         >
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 0})}>
+            <StepButton onClick={() => this.handleStepClick(0)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 0 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Zipcode
@@ -149,7 +171,7 @@ class SearchStepper extends React.Component {
             </StepContent>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 1})}>
+            <StepButton onClick={() => this.handleStepClick(1)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 1 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Select Vehicle Type
@@ -162,7 +184,7 @@ class SearchStepper extends React.Component {
             </StepContent>
           </Step>
           <Step>
-            <StepButton onClick={() => {this.setState({stepIndex: 2})}}>
+            <StepButton onClick={() => this.handleStepClick(2)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 2 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Select Make
@@ -175,7 +197,7 @@ class SearchStepper extends React.Component {
             </StepContent>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 3})}>
+            <StepButton onClick={() => this.handleStepClick(3)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 3 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
                 Select Model
@@ -188,7 +210,9 @@ class SearchStepper extends React.Component {
           </Step>
         </Stepper>
       </div>
-      <SearchButtonBlock />
+      <div className='search-button-block flex-media'>
+        <SearchButton />
+      </div>
     </Form>
     );
   }
