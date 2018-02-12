@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import requireAuth from '../hoc/requireAuth'
 
@@ -9,7 +9,7 @@ const nav = (props) => {
     <nav className='nav-web'>
       <ul className='flex-media'>
         <li>
-          <NavLink to='https://how2car.wordpress.com/blog/' target='blank' className='nav-item' activeClassName='nav-active'>Blog</NavLink>
+          <NavLink to='https://how2car.wordpress.com/blog/' className='nav-item' activeClassName='nav-active' target='blank' >Blog</NavLink>
         </li>
         <li>
           <NavLink to='/dashboard' className='nav-item' activeClassName='nav-active'>Dashboard</NavLink>
@@ -43,4 +43,4 @@ const mapStateToProps = (state) => {
 	return { user: state.user }
 }
 
-export default connect(mapStateToProps)(requireAuth(nav))
+export default withRouter(connect(mapStateToProps)(requireAuth(nav)))
