@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import requireAuth from '../hoc/requireAuth'
 
 const nav = (props) => {
+
   return (
     <nav className='nav-web'>
       <ul className='flex-media'>
