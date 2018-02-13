@@ -15,6 +15,7 @@ import Accessories from '../pages/accessories'
 import Financing from '../pages/financing'
 import Pinpoint from '../pages/pinpoint'
 import Home from '../pages/home'
+import Test from '../pages/test'
 
 import firebase from '../containers/auth/firebase'
 
@@ -34,6 +35,7 @@ class Layout extends Component {
         <Header logout={this.logout} greeting={this.props.user ? 'Hi User!' : null}/>
         {this.props.user ? null : <Auth />}
         <Route path='/home' component={Home} />
+        <Route path='/test' component={Test} />
         <Route path='/search' component = {Search} />
         <Route path='/dashboard' component = {Dashboard} />
         <Route path='/accessories' component = {Accessories} />
