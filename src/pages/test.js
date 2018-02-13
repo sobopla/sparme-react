@@ -2,11 +2,13 @@ import React, {Component} from 'react'
 import Inquire from '../components/common/inquire'
 import Modal from '../UI/Modal/Modal'
 import SeeAppt from '../containers/appointments/setAppt'
+import ConfirmAppt from '../components/appointments/confirmAppt'
 
 class Test extends Component {
   state = {
     seeInquireModal: false,
-    seeApptModal: false
+    seeApptModal: false,
+    confirmApptModal: false
   }
   render(){
   return (
@@ -17,6 +19,9 @@ class Test extends Component {
       <button
         className='basic-button blue3-border'
         onClick={()=> this.setState({seeApptModal: true})}>see appointment modal</button>
+        <button
+          className='basic-button blue3-border'
+          onClick={()=> this.setState({confirmApptModal: true})}>confirm appointment modal</button>
       <div>
         <Modal
           show={this.state.seeInquireModal}
@@ -32,6 +37,17 @@ class Test extends Component {
             image={'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg'}
             model={'Honda Accord'}
             dealer={'Truck City Ford'}
+          />
+        </Modal>
+        <Modal
+          show={this.state.confirmApptModal}
+          transparent={true}
+          modalClosed={()=>this.setState({confirmApptModal: false})}>
+          <ConfirmAppt
+            date={'Saturday, January 20'}
+            time={'4:00pm'}
+            image={'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg'}
+            model={'Honda Accord'}
           />
         </Modal>
       </div>
