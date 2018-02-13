@@ -33,6 +33,15 @@ class NavBurger extends React.Component {
           onStateChange={(state) => this.handleStateChange(state)}>
 					<ul className='nav-options'>
 						<li className="menu-item">
+								<NavLink
+									className='nav-link'
+									activeClassName='nav-active'
+									onClick={() => this.closeMenu()}
+									to="/home" >
+									Home
+								</NavLink>
+							</li>
+						<li className="menu-item">
 							<NavLink
 								className='nav-link'
 								activeClassName='nav-active'
