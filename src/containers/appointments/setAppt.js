@@ -60,7 +60,8 @@ class setAppt extends Component {
               </SelectField>
             </div>
 
-            <button className='basic-button green2-border'>Make Appointment</button>
+            <button className='basic-button green2-border'
+                    onClick={this.props.click}>Make Appointment</button>
           </div>
         </div>
       </div>

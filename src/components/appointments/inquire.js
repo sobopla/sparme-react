@@ -7,7 +7,7 @@ const inquire = (props) => {
       <div className='inquire-buttons'>
           <button
             className='inquire-button'
-            onClick={props.modalClosed}
+            onClick={props.setAppt}
                 >Set Appointment
           </button>
           <button
