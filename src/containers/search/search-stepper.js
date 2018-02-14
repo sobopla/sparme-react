@@ -12,7 +12,7 @@ import { TextField, Slider } from "redux-form-material-ui"
 import { connect } from "react-redux"
 import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSubmit'
 
-import SearchButton from '../../components/search/searchButton'
+import SearchButton from './searchButton'
 import OK from '../../components/buttons/OK'
 import { priceOptions, modelOptions, makeOptions, typeOptions } from './search-data'
 import ManufacturerData from '../../data/manufacturer/carscarscars'
