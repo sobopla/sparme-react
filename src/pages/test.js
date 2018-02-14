@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Inquire from '../components/common/inquire'
+import Inquire from '../components/appointments/inquire'
 import Modal from '../UI/Modal/Modal'
 import SeeAppt from '../containers/appointments/setAppt'
 import ConfirmAppt from '../components/appointments/confirmAppt'
