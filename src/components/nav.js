@@ -9,19 +9,13 @@ const nav = (props) => {
     <nav className='nav-web'>
       <ul className='flex-media'>
         <li>
-          <NavLink to='https://how2car.wordpress.com/blog/' className='nav-item' activeClassName='nav-active' target='blank' >Blog</NavLink>
-        </li>
-        <li>
           <NavLink to='/dashboard' className='nav-item' activeClassName='nav-active'>Dashboard</NavLink>
         </li>
         <li>
-          <NavLink to='/search' className='nav-item' activeClassName='nav-active'>Search</NavLink>
+          <NavLink to='/donate' className='nav-item' activeClassName='nav-active'>Donate</NavLink>
         </li>
         <li>
-          <NavLink to='/financing' className='nav-item' activeClassName='nav-active'>Financing</NavLink>
-        </li>
-        <li>
-          <NavLink to='/accessories' className='nav-item' activeClassName='nav-active'>Accessories</NavLink>
+          <NavLink to='/accessories' className='nav-item' activeClassName='nav-active'>Accounts</NavLink>
         </li>
         <li>
           { props.user ?

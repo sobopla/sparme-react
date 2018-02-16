@@ -29,7 +29,7 @@ class signIn extends Component {
             <h3>Nice to see you!</h3>
             <input placeholder='email' ref={(input) => {this.email = input}} />
             <input placeholder='password' ref={(input) => {this.password = input}} />
-            <NavLink to='/home'>
+            <NavLink to='/dashboard'>
               <button
                 className='basic-button green2'
                 onClick={this.clickToSignIn}

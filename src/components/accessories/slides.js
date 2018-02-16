@@ -1,39 +1,39 @@
 const Slides = [
   {
     url:
-      'https://s3.amazonaws.com/assets.how2car/images/accessories/aftermarket-leather-3x5.jpg',
-    name: 'Aftermarket Leather',
-    price: '$1300'
+      'https://www.pnglogos.com/images/finance/usaa-logo.png',
+    name: 'USAA',
+    roundups: '$1300'
   },
   {
     url:
-      'https://s3.amazonaws.com/assets.how2car/images/accessories/aftermarket-wheels-3x5.jpg',
-    name: 'Aftermarket Wheels',
-    price: '$1300'
+      'https://s3.amazonaws.com/cdns3.nerdwallet.com/banking/rates/9858_L2.jpg',
+    name: 'NETSPEND',
+    roundups: '$1300'
   },
   {
     url:
-      'https://s3.amazonaws.com/assets.how2car/images/accessories/cargomat-3x5.jpg',
-    name: 'Cargo Mat',
-    price: '$95'
+      'https://cdn.nerdwallet.com/banking/checking/769_L2.png',
+    name: 'AMEX',
+    roundups: '$95'
   },
   {
     url:
-      'https://s3.amazonaws.com/assets.how2car/images/accessories/floormats-3x5.jpg',
+      'https://cdn.nerdwallet.com/banking/rates/119_M.jpg',
     name: 'Floor Mats',
-    price: '$195'
+    roundups: '$195'
   },
   {
     url:
-      'https://s3.amazonaws.com/assets.how2car/images/accessories/pinstripe-3x5.jpg',
+      'https://cdn.nerdwallet.com/banking/rates/684_L.jpg',
     name: 'Pinstripe',
-    price: '$75'
+    roundups: '$75'
   },
   {
     url:
-      'https://s3.amazonaws.com/assets.how2car/images/accessories/window-tinting-3x5.jpg',
+      'https://cdn.nerdwallet.com/banking/rates/1911_L2.jpg',
     name: 'Window Tinting',
-    price: '$299'
+    roundups: '$299'
   }
 ];
 

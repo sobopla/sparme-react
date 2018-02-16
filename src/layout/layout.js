@@ -11,8 +11,9 @@ import Auth from '../containers/auth/auth'
 import Search from '../pages/search'
 // import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
+import Linkup from '../pages/linkup'
 import Accessories from '../pages/accessories'
-import Financing from '../pages/financing'
+import Accounts from '../pages/accounts'
 import Pinpoint from '../pages/pinpoint'
 import Home from '../pages/home'
 import Test from '../pages/test'
@@ -36,10 +37,11 @@ class Layout extends Component {
         {this.props.user ? null : <Auth />}
         <Route path='/home' component={Home} />
         <Route path='/test' component={Test} />
-        <Route path='/search' component = {Search} />
+        <Route path='/linkup' component={Linkup} />
+        <Route path='/donate' component = {Search} />
         <Route path='/dashboard' component = {Dashboard} />
         <Route path='/accessories' component = {Accessories} />
-        <Route path='/financing' component = {Financing} />
+        <Route path='/accounts' component = {Accounts} />
         <Route path='/search-results' component={Pinpoint} />
       </Aux>
     )

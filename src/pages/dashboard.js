@@ -1,17 +1,18 @@
 import React from 'react'
-import UpcomingAppointments from '../components/dashboard/upcomingAppointments'
-import DashboardSavedVehicles from '../containers/dashboard/dashboardSavedVehicles'
-import TradeIn from '../components/dashboard/tradeIn'
-import Messages from '../components/dashboard/messages'
+import RoundupTotal from '../components/dashboard/roundupTotal'
+import DashboardRoundups from '../containers/dashboard/dashboardRoundups'
+import Charities from '../components/dashboard/charities'
+import Mycharities from '../components/dashboard/mycharities'
+
 import requireAuth from '../hoc/requireAuth'
 
 const Dashboard = () => {
     return (
       <div>
-        <UpcomingAppointments/>
-        <DashboardSavedVehicles/>
-        <TradeIn/>
-        <Messages/>
+        <RoundupTotal/>
+        <DashboardRoundups/>
+        <Mycharities/>
+        <Charities/>
       </div>
     )
 }

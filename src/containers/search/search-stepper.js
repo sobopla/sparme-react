@@ -58,7 +58,7 @@ class SearchStepper extends React.Component {
       }
     }
     else {
-      this.setState({errors: {zipcode: 'Zipcode must have at least 5 numbers'}})
+      this.setState({errors: {zipcode: 'Non-profit must have at least 5 numbers'}})
     }
   }
 
@@ -161,7 +161,7 @@ class SearchStepper extends React.Component {
             <StepButton onClick={() => this.handleStepClick(0)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 0 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
-                Zipcode
+                Non-profit
               </div>
             </StepButton>
             <StepContent>
@@ -179,7 +179,7 @@ class SearchStepper extends React.Component {
             <StepButton onClick={() => this.handleStepClick(1)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 1 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
-                Select Vehicle Type
+                Amount
               </div>
             </StepButton>
             <StepContent>
@@ -192,7 +192,7 @@ class SearchStepper extends React.Component {
             <StepButton onClick={() => this.handleStepClick(2)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 2 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
-                Select Make
+                Date
               </div>
             </StepButton>
             <StepContent>
@@ -205,7 +205,7 @@ class SearchStepper extends React.Component {
             <StepButton onClick={() => this.handleStepClick(3)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 3 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
-                Select Model
+                From Account
               </div>
             </StepButton>
             <StepContent>

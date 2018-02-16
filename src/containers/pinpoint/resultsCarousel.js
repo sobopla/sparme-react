@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DashboardSavedVehicle from '../../components/dashboard/dashboardSavedVehicle'
+import DashboardRoundup from '../../components/dashboard/dashboardRoundup'
 import LeftArrow from '../../components/buttons/left-arrow.js'
 import RightArrow from '../../components/buttons/right-arrow.js'
 import SearchResults from './results-data'
@@ -79,7 +79,7 @@ class ResultsCarousel extends Component {
           <div className='carousel'>
             <div ref="slideWrap" className='carousel-slides'>
               {this.state.slides.map((slide, index) => (
-                <DashboardSavedVehicle
+                <DashboardRoundup 
                   key={index}
                   index={index}
                   activeIndex={this.state.activeIndex}

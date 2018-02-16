@@ -5,7 +5,7 @@ const AccessorySlide = (props) => {
   return (
     <li className="accessory-slide">
       <div className="accessory-slide-div">
-        <img src={props.slide.url} alt={props.slide.name} />
+        <img className='accessory-bank-icon' src={props.slide.url} alt={props.slide.name} />
         <h1 className="accessory-name">{props.slide.name}</h1>
         <h2 className="accessory-price">{props.slide.price}</h2>
         <div className="flex-center">

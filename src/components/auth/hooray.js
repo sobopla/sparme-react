@@ -7,17 +7,17 @@ const hooray = (props) => {
       <h1>HOORAY!</h1>
       <h3>Welcome to how2car, NAME</h3>
       <div className='flex-media'>
-        <NavLink to='/search'>
+        <NavLink to='/donate'>
           <button
             className='basic-button green2-border'
             onClick={props.modalClosed}
-              >Search Cars</button>
+              >Make a donation</button>
         </NavLink>
-        <NavLink to='/home'>
+        <NavLink to='/accessories'>
           <button
             className='basic-button green2-border'
             onClick={props.modalClosed}>
-            See How It Works</button>
+            Start sparing your change</button>
         </NavLink>
       </div>
     </div>
