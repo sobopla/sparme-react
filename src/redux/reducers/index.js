@@ -4,6 +4,7 @@ import textReducer from './textReducer'
 import valuesReducer from './valuesReducer'
 import resultsReducer from './resultsReducer'
 import roundupReducer from './roundupReducer'
+import charityReducer from './charityReducer'
 import authenticationReducer from './authentication'
 
 export default combineReducers({

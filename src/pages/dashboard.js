@@ -5,11 +5,12 @@ import Charities from '../components/dashboard/charities'
 import Mycharities from '../components/dashboard/mycharities'
 
 import requireAuth from '../hoc/requireAuth'
+import { connect } from 'react-redux' //Allows state into the dashboard
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     return (
       <div>
-        <RoundupTotal/>
+        <RoundupTotal roundups={props.roundups}/>
         <DashboardRoundups/>
         <Mycharities/>
         <Charities/>
@@ -17,4 +18,11 @@ const Dashboard = () => {
     )
 }
 
-export default requireAuth(Dashboard)
+function mapStateToProps(state){
+  return {
+    roundups: state.roundup,
+    //charities: state.charity
+  }
+}
+
+export default requireAuth(connect(mapStateToProps)(Dashboard))
