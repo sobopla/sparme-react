@@ -2,66 +2,9 @@ import React, { Component } from 'react'
 import DashboardRoundup from '../../components/dashboard/dashboardRoundup.js'
 import LeftArrow from '../../components/buttons/left-arrow.js'
 import RightArrow from '../../components/buttons/right-arrow.js'
-
-//placeholder for saved vehicles data
-const savedVehiclesArray = [
-  {
-    image: 'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg',
-    price: '$14,000',
-    paid: '$4.25',
-    roundup: '$.75',
-    storename: 'HEB',
-    date: 'December 17, 2018',
-    added: false
-  },
-  {
-    image: 'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg',
-    price: '$15,000',
-    paid: '$1.10',
-    roundup: '$.90',
-    storename: 'HEB',
-    date: 'December 16, 2018',
-    added: false
-
-  },
-  {
-    image: 'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg',
-    price: '$16,000',
-    paid: '$400.50',
-    roundup: '$.50',
-    storename: 'Amazon',
-    date: 'December 17, 2018',
-    added: false
-  },
-  {
-    image: 'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg',
-    price: '$14,000',
-    paid: '$8.75',
-    roundup: '$.25',
-    storename: 'Petco',
-    date: 'December 17, 2018',
-    added: false
-  },
-  {
-    image: 'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg',
-    price: '$15,000',
-    paid: '$4.25',
-    roundup: '$.75',
-    storename: 'HEB',
-    date: 'December 17, 2018',
-    added: false
-  },
-  {
-    image: 'https://s3.amazonaws.com/assets.how2car/images/Honda/Model/2017+Accord+Coupe.jpg',
-    price: '$16,000',
-    paid: '$4.25',
-    roundup: '$.75',
-    storename: 'HEB',
-    date: 'December 17, 2018',
-    added: false
-  }
-]
-
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { addRoundup } from '../../redux/actions/addRoundup'
 // const savedVehiclesList = savedVehiclesArray.map((vehicle, index) => {
 //   return <DashboardSavedVehicle
 //     key={index}
@@ -75,7 +18,7 @@ class DashboardRoundups extends Component {
 
     this.state = {
       activeIndex: 0,
-      slides: savedVehiclesArray
+      slides: this.props.roundup // this is the redux stat that holds ALL our roundup data that has been initialized (ideally from the API)
     };
   }
 
@@ -111,6 +54,13 @@ class DashboardRoundups extends Component {
     });
   }
 
+  addDonation = (index) => {
+    this.props.addRoundup(index)
+    this.setState({
+      slides: this.props.roundup
+    })
+
+  }
 
   render(){
     return (
@@ -134,6 +84,8 @@ class DashboardRoundups extends Component {
                     paid={slide.paid}
                     date={slide.date}
                     storename={slide.storename}
+                    added = {slide.added}
+                    add = {this.addDonation}
                   />
               ))}
               </div>
@@ -149,4 +101,10 @@ class DashboardRoundups extends Component {
 
 }
 
-export default DashboardRoundups
+function mapStateToProps(state){
+  return { roundup: state.roundup }
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({addRoundup: addRoundup}, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardRoundups)

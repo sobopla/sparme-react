@@ -9,10 +9,10 @@ const roundupInformation = (props) => {
 
       <div className='dash-roundup-roundup'>{props.slide.roundup}</div>
       <div className='dash-roundup-details'>{props.slide.storename + ':  ' + props.slide.paid}</div>
-      
+
       {/*CHECKBOX*/}
-      
-      <img className='dash-add-image' src={props.added ? checked : plus} />
+
+      <img className='dash-add-image' src={props.added ? checked : plus} onClick={()=>props.add(props.index)}/>
 
       <div className='flex-center'>
         <NavLink to='/accessories' className='dash-nav'>
@@ -20,7 +20,7 @@ const roundupInformation = (props) => {
         </NavLink>
 
       </div>
-      
+
 
     </div>
   )
