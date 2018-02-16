@@ -15,7 +15,7 @@ const nav = (props) => {
           <NavLink to='/donate' className='nav-item' activeClassName='nav-active'>Donate</NavLink>
         </li>
         <li>
-          <NavLink to='/accessories' className='nav-item' activeClassName='nav-active'>Accounts</NavLink>
+          <NavLink to='/accounts' className='nav-item' activeClassName='nav-active'>Accounts</NavLink>
         </li>
         <li>
           { props.user ?
