@@ -1,4 +1,4 @@
-import { ADD_CHARITY } from '..actions/types.js'
+import { ADD_CHARITY } from '../actions/types.js'
 // HARDCODE ROUNDUP DATA THAT WILL COME FROM DATABASE BACKEND API
 const initialState = [
   {

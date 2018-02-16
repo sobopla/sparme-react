@@ -14,5 +14,5 @@ export default combineReducers({
 	values: valuesReducer,
 	form: formReducer,
 	roundup: roundupReducer,
-
+	charity: charityReducer,
 })
