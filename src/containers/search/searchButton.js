@@ -23,7 +23,7 @@ class SearchButton extends Component {
 			<NavLink to='/search-results'>
         <button
           className='basic-button green2-border' onClick={this.handleSubmit}
-          >View Results
+          >MAKE DONATION
         </button>
       </NavLink>
 		)}

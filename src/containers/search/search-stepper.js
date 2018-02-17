@@ -161,7 +161,7 @@ class SearchStepper extends React.Component {
             <StepButton onClick={() => this.handleStepClick(0)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 0 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
-                Non-profit
+                Date
               </div>
             </StepButton>
             <StepContent>
@@ -192,7 +192,7 @@ class SearchStepper extends React.Component {
             <StepButton onClick={() => this.handleStepClick(2)}>
               <div className='custom-step-button'
                    style={this.state.stepIndex === 2 ? null : {color: 'rgba(32, 32, 32, 0.35)'}}>
-                Date
+                Nonprofit
               </div>
             </StepButton>
             <StepContent>
