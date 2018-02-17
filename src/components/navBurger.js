@@ -33,25 +33,6 @@ class NavBurger extends React.Component {
           onStateChange={(state) => this.handleStateChange(state)}>
 					<ul className='nav-options'>
 						<li className="menu-item">
-								<NavLink
-									className='nav-link'
-									activeClassName='nav-active'
-									onClick={() => this.closeMenu()}
-									to="/home" >
-									Home
-								</NavLink>
-							</li>
-						<li className="menu-item">
-							<NavLink
-								className='nav-link'
-								activeClassName='nav-active'
-								onClick={() => this.closeMenu()}
-								to="https://how2car.wordpress.com/blog/"
-								target='blank' >
-								Blog
-							</NavLink>
-						</li>
-						<li className="menu-item">
 							<NavLink
 								className='nav-link'
 								activeClassName='nav-active'
@@ -65,8 +46,8 @@ class NavBurger extends React.Component {
 								className='nav-link'
 								activeClassName='nav-active'
 								onClick={() => this.closeMenu()}
-								to="/search" >
-								Search
+								to="/donate" >
+								Donate
 							</NavLink>
 						</li>
 						<li className="menu-item">
@@ -74,17 +55,8 @@ class NavBurger extends React.Component {
 								className='nav-link'
 								activeClassName='nav-active'
 								onClick={() => this.closeMenu()}
-								to="/financing" >
-								Financing
-							</NavLink>
-						</li>
-						<li className="menu-item">
-							<NavLink
-								className='nav-link'
-								activeClassName='nav-active'
-								onClick={() => this.closeMenu()}
-								to="/accessories" >
-								Accessories
+								to="/accounts" >
+								Accounts
 							</NavLink>
 						</li>
 						<li className="menu-item">

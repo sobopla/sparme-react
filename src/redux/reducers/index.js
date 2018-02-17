@@ -5,6 +5,7 @@ import valuesReducer from './valuesReducer'
 import resultsReducer from './resultsReducer'
 import roundupReducer from './roundupReducer'
 import charityReducer from './charityReducer'
+import donationReducer from './donationReducer'
 import authenticationReducer from './authentication'
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
 	form: formReducer,
 	roundup: roundupReducer,
 	charity: charityReducer,
+	donation: donationReducer,
 })

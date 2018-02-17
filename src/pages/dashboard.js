@@ -10,9 +10,9 @@ import { connect } from 'react-redux' //Allows state into the dashboard
 const Dashboard = (props) => {
     return (
       <div>
-        <RoundupTotal roundups={props.roundups} charities={props.charities}/>
+        <RoundupTotal roundups={props.roundups} charities={props.charities} donations={props.donations}/>
         <DashboardRoundups/>
-        <Mycharities/>
+        {//<Mycharities/>}
         <Charities charities={props.charities}/>
       </div>
     )
@@ -21,7 +21,8 @@ const Dashboard = (props) => {
 function mapStateToProps(state){
   return {
     roundups: state.roundup,
-    charities: state.charity
+    charities: state.charity,
+    donations: state.donation
   }
 }
 
