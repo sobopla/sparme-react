@@ -1,5 +1,11 @@
 import React from 'react'
-import RoundupTotal from './roundup'
+
+const total = (array) => {
+  var sum = 0
+  array.forEach(function(obj){
+    sum += parseFloat(obj.paid.replace('$',''))
+  })
+}
 
 const roundupTotal = (props) => {
   return (

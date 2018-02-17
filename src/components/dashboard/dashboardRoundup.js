@@ -5,10 +5,10 @@ import plus from './002-plus.png'
 const roundupInformation = (props) => {
   return (
     <div className='dash-saved-roundup-div'>
-      <div className='dash-roundup-details'>{props.slide.date}</div>
+      <div className='dash-roundup-details'>{props.date}</div>
 
-      <div className='dash-roundup-roundup'>{props.slide.roundup}</div>
-      <div className='dash-roundup-details'>{props.slide.storename + ':  ' + props.slide.paid}</div>
+      <div className='dash-roundup-roundup'>{props.roundup}</div>
+      <div className='dash-roundup-details'>{props.storename + ':  ' + props.paid}</div>
 
       {/*CHECKBOX*/}
 
