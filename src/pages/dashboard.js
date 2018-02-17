@@ -12,7 +12,7 @@ const Dashboard = (props) => {
       <div>
         <RoundupTotal roundups={props.roundups} charities={props.charities} donations={props.donations}/>
         <DashboardRoundups/>
-        {//<Mycharities/>}
+  
         <Charities charities={props.charities}/>
       </div>
     )

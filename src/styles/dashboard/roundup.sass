@@ -8,11 +8,12 @@
   line-height: 50px
   background: $green2
   .place
-    font-size: 25px;
+    font-size: 25px
+    padding-top: 2px
   .paid
-    font-size: 12px;
+    font-size: 25px
   .change
-    font-size: 55px;
+    font-size: 55px
 
 .charities
   display: flex
@@ -28,9 +29,13 @@
 .dash-saved-roundup-div
   width: 300px
   padding: 15px 0px
-  margin: 0px 5px
+  margin: 5px 5px
   font-family: $font
+  flex: 1
+  text-align: center
   box-shadow: 0.2px 0.2px 0.1px 0.1px $blue4
+  &:hover
+    box-shadow: 0px 0px 0.6px 0.6px grey
 
   .dash-nav
     text-decoration: none
@@ -46,16 +51,19 @@
     font-size: 16px
     font-family: $font
     color: $blue4
-    display:inline-block
+    display: inline-block
   .dash-roundup-date
     text-align: center
     font-size: 16px
     font-family: $font
     color: $blue4
   .dash-add-image
-    display: block;
-    margin: 0 auto;
-    padding-top: 1em;
+    display: block
+    margin: auto
+    border-radius: 50%
+    box-shadow: 0.2px 0.2px 0.2px 0.2px grey
+    &:hover
+      box-shadow: 0.4px 0.4px 1.3px 1.3px grey
   .dash-header
     padding-bottom: 40px
     text-align: center

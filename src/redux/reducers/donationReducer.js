@@ -1,81 +1,46 @@
-import { ADD_CHARITY } from '../actions/types.js'
+import { MAKE_DONATION, UPDATE_DONATION } from '../actions/types.js'
 // HARDCODE ROUNDUP DATA THAT WILL COME FROM DATABASE BACKEND API
-const initialState = [
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy. ',
-    added: false,
-  },
-  {
-    title: 'Goodwill',
-    description: 'Lorem Ipsum is simply dummy. ',
-    added: false,
-  },
-  {
-    title: 'Easter Seals',
-    description: 'Lorem Ipsum is simply dummy. ',
-    added: false,
-  },
-  {
-    title: 'PETA',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'The Fund for Animals',
-    description: 'Lorem Ipsum is simply dummy. ',
-    added: false,
-  },
-  {
-    title: 'nonprofit',
-    description: 'Lorem Ipsum is simply dummy. ',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy. ',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  }
-]
+const initialState = {
+  current_investment: '$0.00',
+  history: [
+    {
+      paid: '$5.00',
+      date: '2/17/2018, 1:11:03 PM',
+    },
+    {
+      paid: '$5.00',
+      date: '2/17/2018, 1:11:03 PM',
+    },
+    {
+      paid: '$5.00',
+      date: '2/17/2018, 1:11:03 PM',
+    },
+    {
+      paid: '$5.00',
+      date: '2/17/2018, 1:11:03 PM',
+    },
+    {
+      paid: '$5.00',
+      date: '2/17/2018, 1:11:03 PM',
+    },
+    {
+      paid: '$5.00',
+      date: '2/17/2018, 1:11:03 PM',
+    },
+    {
+      paid: '$5.00',
+      date: '2/17/2018, 1:11:03 PM',
+    },
+  ]
+}
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_CHARITY:
-      return state.map((nonprofit, index) => {
-        if(index == action.payload)
-          nonprofit.added = !nonprofit.added
-        return Object.assign({}, ...nonprofit, nonprofit)
-      })
+    case MAKE_DONATION:
+      return {...state, history:[...state.history, action.payload]}
       break
+
+    case UPDATE_DONATION:
+      return {...state, current_investment:action.payload}
 
     default:
       return state

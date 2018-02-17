@@ -2,7 +2,7 @@ import { MAKE_DONATION } from "./types.js";
 // import axios from "axios-es6";
 
 // Action creator that is also performing API CALLS and then returning the action that the reducer gets as a parameter to update the store data
-export function makeDonation(index) {
+export function makeDonation(amount) {
   // const URL = "";
   // console.log("Let's do this!");
   // let request = axios.get(URL);

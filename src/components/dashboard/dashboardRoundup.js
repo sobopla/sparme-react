@@ -13,15 +13,6 @@ const roundupInformation = (props) => {
       {/*CHECKBOX*/}
 
       <img className='dash-add-image' src={props.added ? checked : plus} onClick={()=>props.add(props.index)}/>
-
-      <div className='flex-center'>
-        <NavLink to='/accessories' className='dash-nav'>
-          <button className='view-accessories-button'>placeholder</button>
-        </NavLink>
-
-      </div>
-
-
     </div>
   )
 }

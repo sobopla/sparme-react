@@ -13,7 +13,7 @@ const initialState = [  {
     roundup: '$.90',
     storename: 'CostCo',
     date: '2018-01-04 11:34:23',
-    added: true
+    added: false
 
   },
   {
