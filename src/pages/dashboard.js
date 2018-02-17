@@ -2,7 +2,7 @@ import React from 'react'
 import RoundupTotal from '../components/dashboard/roundupTotal'
 import DashboardRoundups from '../containers/dashboard/dashboardRoundups'
 import Charities from '../components/dashboard/charities'
-import Mycharities from '../components/dashboard/mycharities'
+import MyCharities from '../components/dashboard/mycharities'
 
 import requireAuth from '../hoc/requireAuth'
 import { connect } from 'react-redux' //Allows state into the dashboard
@@ -12,7 +12,7 @@ const Dashboard = (props) => {
       <div>
         <RoundupTotal roundups={props.roundups} charities={props.charities} donations={props.donations}/>
         <DashboardRoundups/>
-  
+        <MyCharities charities = {props.charities.filter(chrt=> chrt.added==true)}/>
         <Charities charities={props.charities}/>
       </div>
     )

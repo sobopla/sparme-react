@@ -4,7 +4,7 @@ const initialState = [
   {
     title: 'Austin Pets Alive',
     description: 'Lorem Ipsum is simply dummy. ',
-    added: false,
+    added: true,
   },
   {
     title: 'Goodwill',
