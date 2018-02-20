@@ -13,7 +13,7 @@ const hooray = (props) => {
             onClick={props.modalClosed}
               >Make a donation</button>
         </NavLink>
-        <NavLink to='/accessories'>
+        <NavLink to='/dashboard'>
           <button
             className='basic-button green2-border'
             onClick={props.modalClosed}>

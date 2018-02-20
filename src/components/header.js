@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from './logo'
-import DealershipPortalButton from './buttons/DealershipPortalButton'
+
 import Nav from './nav'
 import NavBurger from './navBurger'
 
@@ -13,7 +13,7 @@ const Header =(props) => {
 			</div>
 			<Nav logout={props.logout}/>
 			<NavBurger logout={props.logout}/>
-			{/* <DealershipPortalButton /> */}
+			
 		</header>
 	)
 }

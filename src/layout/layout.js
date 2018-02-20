@@ -12,9 +12,8 @@ import Search from '../pages/search'
 // import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
 import Linkup from '../pages/linkup'
-import Accessories from '../pages/accessories'
 import Accounts from '../pages/accounts'
-import Pinpoint from '../pages/pinpoint'
+// import Pinpoint from '../pages/pinpoint'
 import Home from '../pages/home'
 import Test from '../pages/test'
 
@@ -40,9 +39,9 @@ class Layout extends Component {
         <Route path='/linkup' component={Linkup} />
         <Route path='/donate' component = {Search} />
         <Route path='/dashboard' component = {Dashboard} />
-        <Route path='/accessories' component = {Accessories} />
+        
         <Route path='/accounts' component = {Accounts} />
-        <Route path='/search-results' component={Pinpoint} />
+        
       </Aux>
     )
   }

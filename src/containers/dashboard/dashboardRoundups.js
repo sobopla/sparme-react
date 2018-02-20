@@ -39,9 +39,9 @@ class DashboardRoundups extends Component {
 
   render(){
     return (
-      <div className='dash-saved-roundups-wrapper'>
+      <div className='dash-transactions-wrapper'>
         <div className='dash-header'>Roundups </div>
-        <div className='carousel-wrapper'>
+        <div className='dash-carousel-wrapper'>
                 {this.state.slides.map((slide, index) => (
                   <DashboardRoundup
                     key={index}

@@ -17,10 +17,10 @@ const filter_and_sort = (array) => {
 
 const roundupTotal = (props) => {
   return (
-    <div className='upcoming-appointments-wrapper flex-center'>
-      <div className='upcoming-appointments'>
-        <div className='upcoming-appointments-header'>Total Donated</div>
-        <div className='flex-media appointment'>
+    <div className='donations-section-wrapper flex-center'>
+      <div className='donations-section'>
+        <div className='donations-section-header'>Total Donated</div>
+        <div className='flex-media donation'>
             <div className='circle'>
               <div className='place'> so far </div>
               <div className='change'> {props.donations.current_investment} </div>

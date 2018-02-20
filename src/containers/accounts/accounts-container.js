@@ -22,7 +22,7 @@ export default class AccountsBlock extends Component {
   render() {
     return (
       <div>
-        <ul ref="slideWrap" className="flex-media accessories-wrapper">
+        <ul ref="slideWrap" className="flex-media accounts-wrapper">
           {this.state.slides.map((slide, index) => (
             <AccountSlide
               key={index}

@@ -6,9 +6,9 @@ const Accounts = () => {
 	//API CALL TO THE BACKEND TO GET THE ACCOUNTS PULLED IN
   return (
 		<div style={{textAlign:'center'}}>
-			<div className='accessory-search-bar'>
-				<label className='accessory-label'>search banks to add</label>
-				<input className='accessory-search' type='text' ref={(input) => {this.searchValue = input;}}/>
+			<div className='account-search-bar'>
+				<label className='account-label'>search banks to add</label>
+				<input className='account-search' type='text' ref={(input) => {this.searchValue = input;}}/>
 			</div>
       <AccountsBlock />
 			<div className='flex-center'>

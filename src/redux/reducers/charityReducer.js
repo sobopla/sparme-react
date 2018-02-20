@@ -2,68 +2,62 @@ import { ADD_CHARITY } from '../actions/types.js'
 // HARDCODE ROUNDUP DATA THAT WILL COME FROM DATABASE BACKEND API
 const initialState = [
   {
+    title: 'DaysofCode',
+    description: 'Learn to code in 10 or 100 day events. ',
+    added: true,
+  },{
     title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy. ',
+    description: 'We maintain comprehensive programs to save the animals at risk for euthanasia. ',
     added: true,
   },
   {
     title: 'Goodwill',
-    description: 'Lorem Ipsum is simply dummy. ',
+    description: 'Help people earn a living, improve their lives and strengthen their families and their communities. ',
     added: false,
   },
   {
     title: 'Easter Seals',
-    description: 'Lorem Ipsum is simply dummy. ',
+    description: 'Provides services, education and outreach so people with disabilities can live, learn, work, play in our communities. ',
     added: false,
   },
   {
     title: 'PETA',
-    description: 'Lorem Ipsum is simply dummy.',
+    description: 'People for the Ethical Treatment of Animals (PETA) is the largest animal rights organization in the world.',
     added: false,
   },
   {
     title: 'The Fund for Animals',
-    description: 'Lorem Ipsum is simply dummy. ',
+    description: 'With your help, suffering animals can have another chance at life. Donate now!. ',
     added: false,
   },
   {
-    title: 'nonprofit',
-    description: 'Lorem Ipsum is simply dummy. ',
+    title: 'Days of Code',
+    description: 'Learn code in 10 or 100 day events. ',
     added: false,
   },
   {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy. ',
+    title: 'Girls Who Code',
+    description: 'Girls Who Code was founded with a single mission : to close the gender gap in technology. ',
     added: false,
   },
   {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
+    title: 'NPR',
+    description: 'Power independent journalism in your community. Donate to your NPR station.',
     added: false,
   },
   {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
+    title: 'Rainforest Partnership',
+    description: 'Protect and regenerate rainforests by working with locals in forests to develop sustainable, empowered communities.',
     added: false,
   },
   {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
+    title: 'Knowbility',
+    description: 'Improving technology access for millions of youth and adults with disabilities all over the world..',
     added: false,
   },
   {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
-    added: false,
-  },
-  {
-    title: 'Austin Pets Alive',
-    description: 'Lorem Ipsum is simply dummy.',
+    title: 'The Arc of the Capital Area',
+    description: 'Provides programs and services to people with intellectual and developmental disabilities..',
     added: false,
   }
 ]
