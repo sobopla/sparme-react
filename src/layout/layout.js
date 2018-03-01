@@ -9,13 +9,10 @@ import Header from "../components/header"
 import Auth from '../containers/auth/auth'
 
 import Search from '../pages/search'
-// import AdvancedSearch from '../pages/advancedSearch'
 import Dashboard from '../pages/dashboard'
 import Linkup from '../pages/linkup'
 import Accounts from '../pages/accounts'
-// import Pinpoint from '../pages/pinpoint'
 import Home from '../pages/home'
-import Test from '../pages/test'
 
 import firebase from '../containers/auth/firebase'
 
@@ -35,13 +32,11 @@ class Layout extends Component {
         <Header logout={this.logout} greeting={this.props.user ? 'Hi User!' : null}/>
         {this.props.user ? null : <Auth />}
         <Route path='/home' component={Home} />
-        <Route path='/test' component={Test} />
         <Route path='/linkup' component={Linkup} />
         <Route path='/donate' component = {Search} />
-        <Route path='/dashboard' component = {Dashboard} />
-        
+        <Route path='/dashboard' component = {Dashboard} /> 
         <Route path='/accounts' component = {Accounts} />
-        
+
       </Aux>
     )
   }

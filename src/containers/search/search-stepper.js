@@ -15,7 +15,6 @@ import { formSubmissionHandler as formSubmit } from '../../redux/actions/formSub
 import SearchButton from './searchButton'
 import OK from '../../components/buttons/OK'
 import { priceOptions, modelOptions, makeOptions, typeOptions } from './search-data'
-import ManufacturerData from '../../data/manufacturer/carscarscars'
 import { stepOptions, filter } from './step-functions'
 
 class SearchStepper extends React.Component {
