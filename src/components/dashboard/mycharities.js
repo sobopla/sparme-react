@@ -2,7 +2,7 @@ import React from 'react'
 import MyCharity from './mycharity'
 
 
-const Messages = (props) => {
+const MyCharities = (props) => {
     return (
       <div className='mycharities-wrapper flex-center'>
         <div className='mycharities-div'>
@@ -20,4 +20,4 @@ const Messages = (props) => {
     )
 }
 
-export default Messages
+export default MyCharities
